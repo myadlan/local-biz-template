@@ -82,6 +82,50 @@ const App = (() => {
   }
 
   /* ────────────────────────────────
+   *  RENDER — Social Icons (header row + follow section)
+   * ──────────────────────────────── */
+  const SOCIAL_PLATFORMS = [
+    { key: 'facebookPage', icon: 'fa-brands fa-facebook',  label: 'Facebook', color: '#1877F2' },
+    { key: 'instagram',    icon: 'fa-brands fa-instagram', label: 'Instagram', color: '#E1306C' },
+    { key: 'tiktok',       icon: 'fa-brands fa-tiktok',    label: 'TikTok',   color: '#010101' },
+  ];
+
+  function renderSocialHeader() {
+    const container = document.getElementById('biz-social');
+    if (!container) return;
+    const links = SOCIAL_PLATFORMS.filter(p => CONFIG.business[p.key]);
+    if (!links.length) { container.style.display = 'none'; return; }
+
+    container.innerHTML = links.map(p => `
+      <a href="${CONFIG.business[p.key]}" target="_blank" rel="noopener"
+         class="social-icon-link" aria-label="${p.label}"
+         style="--social-color:${p.color}">
+        <i class="${p.icon}"></i>
+      </a>`).join('');
+  }
+
+  function renderSocialFollow() {
+    const container = document.getElementById('social-follow');
+    if (!container) return;
+    const links = SOCIAL_PLATFORMS.filter(p => CONFIG.business[p.key]);
+    if (!links.length) { container.style.display = 'none'; return; }
+
+    container.innerHTML = `
+      <div class="follow-heading">
+        <span class="follow-label">Follow Us on Social Media</span>
+      </div>
+      <div class="follow-icons">
+        ${links.map(p => `
+          <a href="${CONFIG.business[p.key]}" target="_blank" rel="noopener"
+             class="follow-icon-btn" aria-label="${p.label}"
+             style="--social-color:${p.color}">
+            <span class="follow-icon-circle"><i class="${p.icon}"></i></span>
+            <span class="follow-icon-label">${p.label}</span>
+          </a>`).join('')}
+      </div>`;
+  }
+
+  /* ────────────────────────────────
    *  RENDER — Carousel (2 visible, promo is slide 0)
    *
    *  Layout: each slide is 75% wide with 8px gap → 2 slides peek on screen.
@@ -266,10 +310,10 @@ const App = (() => {
    *  Call · Directions · WhatsApp · Share
    * ──────────────────────────────── */
   const FIXED_BUTTONS = [
-    { action: 'call',       label: 'Panggil',    icon: 'fa-solid fa-phone'               },
-    { action: 'directions', label: 'Arah',        icon: 'fa-solid fa-diamond-turn-right'  },
-    { action: 'whatsapp',   label: 'WhatsApp',   icon: 'fa-brands fa-whatsapp'            },
-    { action: 'share',      label: 'Kongsi',     icon: 'fa-solid fa-share-nodes'          },
+    { action: 'call',       label: 'Call',       icon: 'fa-solid fa-phone'              },
+    { action: 'directions', label: 'Directions', icon: 'fa-solid fa-diamond-turn-right' },
+    { action: 'whatsapp',   label: 'WhatsApp',   icon: 'fa-brands fa-whatsapp'          },
+    { action: 'share',      label: 'Share',      icon: 'fa-solid fa-share-nodes'        },
   ];
 
   function renderButtons() {
@@ -675,6 +719,8 @@ const App = (() => {
     applyTheme();
     injectMeta();
     renderHeader();
+    renderSocialHeader();
+    renderSocialFollow();
     initPromoModal();
     renderCarousel();
     renderButtons();

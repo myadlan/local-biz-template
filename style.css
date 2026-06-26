@@ -235,12 +235,107 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 
 /* ────────────────────────────────
+   SOCIAL ICONS — header row
+──────────────────────────────── */
+.biz-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  flex-wrap: nowrap;
+}
+
+.biz-social {
+  margin-left: auto;       /* push to right */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.social-icon-link {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--social-color, var(--color-text-muted));
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background var(--transition), transform 0.12s, border-color var(--transition);
+}
+.social-icon-link:hover {
+  background: color-mix(in srgb, var(--social-color) 12%, transparent);
+  border-color: color-mix(in srgb, var(--social-color) 35%, transparent);
+  transform: scale(1.1);
+}
+.social-icon-link:active { transform: scale(0.95); }
+
+/* ────────────────────────────────
+   FOLLOW US — overview bottom section
+──────────────────────────────── */
+.social-follow-section {
+  padding: 20px 16px 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.follow-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.follow-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.follow-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.follow-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--color-text);
+  flex: 1;
+  max-width: 90px;
+}
+
+.follow-icon-circle {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--social-color) 10%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--social-color) 25%, transparent);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--social-color);
+  font-size: 1.25rem;
+  transition: background var(--transition), transform 0.12s, box-shadow var(--transition);
+}
+.follow-icon-btn:hover .follow-icon-circle {
+  background: color-mix(in srgb, var(--social-color) 18%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--social-color) 25%, transparent);
+}
+.follow-icon-btn:active .follow-icon-circle { transform: scale(0.93); }
+
+/* ────────────────────────────────
    BUSINESS HEADER — topmost, sits above tabs
 ──────────────────────────────── */
 .biz-header {
   padding: 16px 16px 12px;
   background: var(--color-bg);
 }
+
+
 
 .biz-name {
   font-size: 1.55rem;
@@ -268,13 +363,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .biz-open-badge {
   color: #2E9E57;
   font-weight: 600;
-}
-
-.biz-rating-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
 }
 
 .biz-rating-num {

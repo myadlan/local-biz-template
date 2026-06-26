@@ -26,7 +26,9 @@ const CONFIG = {
     wazeLat:     "3.0499558",
     wazeLng:     "101.7057032",
     wazeName:    "Caltex Sungai Besi",
-    facebookPage:"https://www.facebook.com/CaltexSungaiBesi",
+    facebookPage: "https://www.facebook.com/profile.php?id=61556722739879",
+    instagram:    "https://www.instagram.com/caltex.sg.besi/",
+    tiktok:       "https://www.tiktok.com/@caltex.sg.besi",
   },
 
   /* ----------------------------------------------------------

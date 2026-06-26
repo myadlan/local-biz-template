@@ -426,7 +426,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ────────────────────────────────
-   SERVICES / HIGHLIGHTS PANEL
+   SERVICES / HIGHLIGHTS PANEL — 16:9 image cards
 ──────────────────────────────── */
 .services-panel {
   padding: 16px;
@@ -435,69 +435,64 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .highlights-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .highlight-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 16px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: hidden;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
   transition: box-shadow var(--transition), transform 0.15s;
 }
 .highlight-card:hover {
-  box-shadow: 0 4px 14px rgba(0,0,0,0.10);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.11);
+  transform: translateY(-2px);
 }
 
-/* Thumbnail — Cloudinary image */
-.highlight-thumb-wrap {
-  flex-shrink: 0;
-  width: 72px; height: 72px;
-  border-radius: var(--radius-md);
+/* 16:9 image container */
+.highlight-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: var(--color-surface-2);
 }
 
-.highlight-thumb {
-  width: 100%; height: 100%;
+.highlight-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease, opacity 0.3s;
+}
+.highlight-img.lazy { opacity: 0; }
+.highlight-img:not(.lazy) { opacity: 1; }
+.highlight-card:hover .highlight-img { transform: scale(1.03); }
+
+.highlight-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-accent-mid));
 }
 
-/* Icon-only thumbnail (no image) */
-.highlight-icon-thumb {
-  width: 72px; height: 72px;
-  border-radius: var(--radius-md);
-  background: var(--color-accent-soft);
-  border: 1.5px solid var(--color-accent-mid);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-accent);
-  font-size: 1.6rem;
-}
-
+/* Text body */
 .highlight-body {
-  flex: 1;
-  min-width: 0;
+  padding: 14px 16px 16px;
 }
 
 .highlight-title {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   line-height: 1.3;
 }
 
 .highlight-desc {
-  font-size: 0.78rem;
+  font-size: 0.80rem;
   color: var(--color-text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ────────────────────────────────
@@ -616,6 +611,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--color-surface);
   border-top: 1px solid var(--color-border);
   padding: 10px 16px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
   display: flex;
   gap: 10px;
   z-index: 50;
@@ -624,7 +620,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .sticky-btn {
   flex: 1;
-  padding: 12px;
+  padding: 13px;
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   font-weight: 700;
@@ -632,6 +628,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
   transition: opacity var(--transition), transform 0.1s;
 }
 .sticky-btn:active { transform: scale(0.97); }
@@ -640,11 +639,115 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--color-accent);
   color: var(--color-accent-text);
 }
-.sticky-btn-secondary {
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent-mid);
+
+/* Waze button — signature blue/teal */
+.sticky-btn-waze {
+  background: #05C8F7;
+  color: #ffffff;
 }
+.sticky-btn-waze:hover { opacity: 0.9; }
+
+/* ────────────────────────────────
+   WAZE INSTRUCTION MODAL
+──────────────────────────────── */
+.waze-icon {
+  background: rgba(5, 200, 247, 0.12) !important;
+  color: #05C8F7 !important;
+}
+
+.waze-steps {
+  padding: 4px 24px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.waze-step {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  position: relative;
+}
+
+/* Connecting vertical line between steps */
+.waze-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 44px;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border);
+}
+
+.waze-step-num {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: #05C8F7;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.waze-step-body {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.waze-step-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.waze-step-desc {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.waze-actions {
+  padding: 8px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.waze-open-btn {
+  background: #05C8F7 !important;
+}
+
+.waze-back-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: none;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background var(--transition), color var(--transition);
+}
+.waze-back-btn:hover {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+
 
 /* ────────────────────────────────
    BOTTOM SAFE AREA PADDING

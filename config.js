@@ -23,6 +23,9 @@ const CONFIG = {
     website:     "https://www.caltex.com",       // leave "" to hide button
     whatsapp:    "",                              // e.g. "60123456789" or leave ""
     mapEmbed:    "https://maps.google.com/?q=Caltex+Sungai+Besi+Kuala+Lumpur",
+    wazeLat:     "3.0573",    // latitude for Waze pin
+    wazeLng:     "101.7227",  // longitude for Waze pin
+    wazeName:    "Caltex Sungai Besi",
     facebookPage:"https://www.facebook.com/CaltexSungaiBesi",
   },
 
@@ -121,31 +124,27 @@ const CONFIG = {
 
   /* ----------------------------------------------------------
    *  5. SERVICE HIGHLIGHTS — shown in the Services tab
-   *  Each card: icon (Font Awesome class), title, description.
-   *  imageId: Cloudinary public ID for thumbnail — leave "" to use icon only.
+   *  Each card: 16:9 image (Cloudinary public ID) + title + description.
+   *  Leave imageId: "" to show a plain colour placeholder.
    * ---------------------------------------------------------- */
   highlights: [
     {
-      icon:        "fa-solid fa-mosque",
-      imageId:     "",
+      imageId:     "samples/landscapes/architecture-signs",
       title:       "Spacious & Comfortable Surau",
       description: "Perform your prayers in peace before continuing your journey. Our surau is well-maintained, air-conditioned, and open 24 hours.",
     },
     {
-      icon:        "fa-solid fa-mug-hot",
-      imageId:     "",
+      imageId:     "samples/food/dessert-on-a-plate",
       title:       "Refresh & Restock for the Journey",
       description: "Coffee Bean and Family Mart on-site — grab a hot drink, snacks, and everything you need before hitting the highway.",
     },
     {
-      icon:        "fa-solid fa-sink",
-      imageId:     "",
+      imageId:     "samples/landscapes/nature-mountains",
       title:       "Clean & Well-Maintained Toilets",
       description: "Our restrooms are cleaned regularly and consistently rated among the best on this route. Travel in comfort.",
     },
     {
-      icon:        "fa-solid fa-gas-pump",
-      imageId:     "",
+      imageId:     "samples/people/smiling-man",
       title:       "Full Pump Service",
       description: "Stay in your car while our friendly team fills up your tank and cleans your windscreen — completely free of charge.",
     },
@@ -248,7 +247,7 @@ const CONFIG = {
      *  Ratio: 4:3 (e.g. 720 × 540 px recommended).
      *  Leave imageId: "" to use a CSS-only gradient banner instead.
      */
-    imageId:     "",            // e.g. "promotions/raya-promo-2026" or "" for gradient
+    imageId:     "caltex-cbtl_avfszi",   // Cloudinary public ID — loaded as WebP 4:3
     imageAlt:    "Promosi Eksklusif — Dapatkan Tawaran Istimewa",
 
     /*

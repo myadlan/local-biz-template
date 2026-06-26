@@ -166,10 +166,11 @@ const App = (() => {
 
     if (promo.imageId) {
       const cn  = CONFIG.cloudinary;
+      // Force WebP, 4:3 ratio at carousel width (78% of 720px ≈ 560px, doubled for retina → 720w)
       const url = promo.imageId.startsWith('http')
         ? promo.imageId
-        : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_${cn.format},q_${cn.quality},w_720,h_480,c_fill,g_auto/${promo.imageId}`;
-      inner = `<img src="${url}" alt="${promo.imageAlt}" class="carousel-img" width="720" height="480" loading="eager" />`;
+        : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_540,c_fill,g_auto/${promo.imageId}`;
+      inner = `<img src="${url}" alt="${promo.imageAlt}" class="carousel-img" width="720" height="540" loading="eager" fetchpriority="high" />`;
     } else {
       inner = `
         <div class="promo-slide-gradient">
@@ -184,9 +185,9 @@ const App = (() => {
     }
 
     return `
-      <div class="carousel-slide promo-slide" data-index="${i}" data-promo="1" role="button" tabindex="0" aria-label="Lihat promosi — ${promo.badge}">
+      <div class="carousel-slide promo-slide" data-index="${i}" data-promo="1" role="button" tabindex="0" aria-label="View promotion — ${promo.badge}">
         ${inner}
-        <div class="promo-slide-badge-overlay"><i class="fa-solid fa-tag"></i> Promosi</div>
+        <div class="promo-slide-badge-overlay"><i class="fa-solid fa-tag"></i> Promo</div>
       </div>`;
   }
 
@@ -362,7 +363,7 @@ const App = (() => {
   }
 
   /* ────────────────────────────────
-   *  RENDER — Service Highlight Cards
+   *  RENDER — Service Highlight Cards (16:9 image + text)
    * ──────────────────────────────── */
   function renderHighlights() {
     const container = document.getElementById('highlights-list');
@@ -371,21 +372,28 @@ const App = (() => {
     if (!items?.length) { container.closest('.services-panel')?.remove(); return; }
 
     container.innerHTML = items.map((item, i) => {
-      // Thumbnail: Cloudinary image if provided, else icon-only
-      let thumbHtml = '';
+      const cn = CONFIG.cloudinary;
+      let imgHtml = '';
+
       if (item.imageId) {
-        const cn  = CONFIG.cloudinary;
+        // 16:9 — WebP, w=720 h=405
         const url = item.imageId.startsWith('http')
           ? item.imageId
-          : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_${cn.format},q_${cn.quality},w_160,h_160,c_fill,g_auto/${item.imageId}`;
-        thumbHtml = `<img ${i === 0 ? `src="${url}"` : `data-src="${url}"`} alt="${item.title}" class="highlight-thumb${i > 0 ? ' lazy' : ''}" width="80" height="80" loading="${i === 0 ? 'eager' : 'lazy'}" />`;
+          : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_405,c_fill,g_auto/${item.imageId}`;
+        imgHtml = `<img
+          ${i === 0 ? `src="${url}"` : `data-src="${url}"`}
+          alt="${item.title}"
+          class="highlight-img${i > 0 ? ' lazy' : ''}"
+          width="720" height="405"
+          loading="${i === 0 ? 'eager' : 'lazy'}"
+        />`;
       } else {
-        thumbHtml = `<div class="highlight-icon-thumb"><i class="${item.icon}"></i></div>`;
+        imgHtml = `<div class="highlight-img-placeholder"></div>`;
       }
 
       return `
         <div class="highlight-card">
-          <div class="highlight-thumb-wrap">${thumbHtml}</div>
+          <div class="highlight-img-wrap">${imgHtml}</div>
           <div class="highlight-body">
             <div class="highlight-title">${item.title}</div>
             <div class="highlight-desc">${item.description}</div>

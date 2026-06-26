@@ -111,17 +111,80 @@
        STICKY BOTTOM BAR
   ══════════════════════════════ -->
   <div class="sticky-bar" role="navigation" aria-label="Primary actions">
-    <button class="sticky-btn sticky-btn-secondary" id="sticky-directions" aria-label="Get Directions">
-      <i class="fa-solid fa-diamond-turn-right"></i>
-      Directions
+    <button class="sticky-btn sticky-btn-waze" id="sticky-waze" aria-label="Pin on Waze">
+      <i class="fa-solid fa-location-pin"></i>
+      Pin on Waze
     </button>
-    <button class="sticky-btn sticky-btn-primary" id="sticky-call" aria-label="Call Now">
-      <i class="fa-solid fa-phone"></i>
-      Call Now
+    <button class="sticky-btn sticky-btn-primary" id="sticky-directions" aria-label="Get Directions">
+      <i class="fa-solid fa-diamond-turn-right"></i>
+      Get Directions
     </button>
   </div>
 
 </div><!-- /page-wrapper -->
+
+
+<!-- ══════════════════════════════
+     WAZE PIN INSTRUCTION MODAL
+══════════════════════════════ -->
+<div id="waze-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="waze-modal-title" hidden>
+  <div class="modal-sheet">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <button id="waze-modal-close" class="modal-close" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="modal-header">
+      <div class="modal-icon waze-icon">
+        <i class="fa-solid fa-location-pin"></i>
+      </div>
+      <h2 id="waze-modal-title" class="modal-title">How to Pin on Waze</h2>
+      <p class="modal-desc">Save our location to your Waze so you can navigate here anytime — even offline.</p>
+    </div>
+
+    <div class="waze-steps">
+      <div class="waze-step">
+        <div class="waze-step-num">1</div>
+        <div class="waze-step-body">
+          <div class="waze-step-title">Tap "Open in Waze" below</div>
+          <div class="waze-step-desc">This opens Waze and drops a pin at our exact location.</div>
+        </div>
+      </div>
+      <div class="waze-step">
+        <div class="waze-step-num">2</div>
+        <div class="waze-step-body">
+          <div class="waze-step-title">Tap the pin on the map</div>
+          <div class="waze-step-desc">A popup will appear at the bottom of your screen with the location name.</div>
+        </div>
+      </div>
+      <div class="waze-step">
+        <div class="waze-step-num">3</div>
+        <div class="waze-step-body">
+          <div class="waze-step-title">Tap <strong>"Save"</strong> or <strong>"Add to favourites"</strong></div>
+          <div class="waze-step-desc">The pin is now saved. Find it anytime under <em>My Waze → Saved Places</em>.</div>
+        </div>
+      </div>
+      <div class="waze-step">
+        <div class="waze-step-num">4</div>
+        <div class="waze-step-body">
+          <div class="waze-step-title">Navigate anytime</div>
+          <div class="waze-step-desc">Tap the saved place and hit <strong>"Go"</strong> — Waze will guide you with live traffic.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="waze-actions">
+      <button id="waze-open-btn" class="promo-submit-btn waze-open-btn">
+        <i class="fa-solid fa-location-pin"></i>
+        Open in Waze
+      </button>
+      <button id="waze-back-btn" class="waze-back-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+        Back
+      </button>
+    </div>
+  </div>
+</div>
 
 
 <!-- ══════════════════════════════
@@ -198,14 +261,50 @@
         : '<i class="fa-regular fa-star"></i>'
     ).join('');
 
-    // Sticky bar
+    // Sticky bar — Pin on Waze
+    document.getElementById('sticky-waze')?.addEventListener('click', () => {
+      openWazeModal();
+      Tracker.fireAll('directions');
+    });
+
+    // Sticky bar — Get Directions (Google Maps)
     document.getElementById('sticky-directions')?.addEventListener('click', () => {
       window.open(CONFIG.business.mapEmbed, '_blank');
       Tracker.fireAll('directions');
     });
-    document.getElementById('sticky-call')?.addEventListener('click', () => {
-      window.location.href = `tel:${CONFIG.business.phone.replace(/[\s-]/g,'')}`;
-      Tracker.fireAll('call');
+
+    // Waze modal logic
+    function openWazeModal() {
+      const modal = document.getElementById('waze-modal');
+      if (!modal) return;
+      modal.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add('is-open')));
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWazeModal() {
+      const modal = document.getElementById('waze-modal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => { modal.hidden = true; }, 300);
+    }
+
+    document.getElementById('waze-modal-close')?.addEventListener('click', closeWazeModal);
+    document.getElementById('waze-back-btn')?.addEventListener('click', closeWazeModal);
+    document.getElementById('waze-modal')?.addEventListener('click', e => {
+      if (e.target === document.getElementById('waze-modal')) closeWazeModal();
+    });
+
+    document.getElementById('waze-open-btn')?.addEventListener('click', () => {
+      const { wazeLat, wazeLng, wazeName } = CONFIG.business;
+      const url = `https://waze.com/ul?ll=${wazeLat},${wazeLng}&navigate=yes&q=${encodeURIComponent(wazeName)}`;
+      window.open(url, '_blank');
+      closeWazeModal();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && !document.getElementById('waze-modal')?.hidden) closeWazeModal();
     });
   });
 </script>

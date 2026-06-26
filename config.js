@@ -23,8 +23,8 @@ const CONFIG = {
     website:     "https://www.caltex.com",       // leave "" to hide button
     whatsapp:    "",                              // e.g. "60123456789" or leave ""
     mapEmbed:    "https://maps.google.com/?q=Caltex+Sungai+Besi+Kuala+Lumpur",
-    wazeLat:     "3.0573",    // latitude for Waze pin
-    wazeLng:     "101.7227",  // longitude for Waze pin
+    wazeLat:     "3.0499558",
+    wazeLng:     "101.7057032",
     wazeName:    "Caltex Sungai Besi",
     facebookPage:"https://www.facebook.com/CaltexSungaiBesi",
   },

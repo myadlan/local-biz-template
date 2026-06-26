@@ -110,7 +110,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
   position: relative;
   background: var(--color-surface);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   cursor: default;
 }
 
@@ -451,10 +451,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transform: translateY(-2px);
 }
 
-/* 16:9 image container */
+/* 1:1 image container */
 .highlight-img-wrap {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--color-surface-2);
 }

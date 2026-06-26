@@ -166,11 +166,11 @@ const App = (() => {
 
     if (promo.imageId) {
       const cn  = CONFIG.cloudinary;
-      // Force WebP, 4:3 ratio at carousel width (78% of 720px ≈ 560px, doubled for retina → 720w)
+      // Force WebP, 1:1 ratio matching carousel slide aspect-ratio
       const url = promo.imageId.startsWith('http')
         ? promo.imageId
-        : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_540,c_fill,g_auto/${promo.imageId}`;
-      inner = `<img src="${url}" alt="${promo.imageAlt}" class="carousel-img" width="720" height="540" loading="eager" fetchpriority="high" />`;
+        : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_720,c_fill,g_auto/${promo.imageId}`;
+      inner = `<img src="${url}" alt="${promo.imageAlt}" class="carousel-img" width="720" height="720" loading="eager" fetchpriority="high" />`;
     } else {
       inner = `
         <div class="promo-slide-gradient">
@@ -363,7 +363,7 @@ const App = (() => {
   }
 
   /* ────────────────────────────────
-   *  RENDER — Service Highlight Cards (16:9 image + text)
+   *  RENDER — Service Highlight Cards (1:1 image + text)
    * ──────────────────────────────── */
   function renderHighlights() {
     const container = document.getElementById('highlights-list');
@@ -376,15 +376,15 @@ const App = (() => {
       let imgHtml = '';
 
       if (item.imageId) {
-        // 16:9 — WebP, w=720 h=405
+        // 1:1 square — WebP, w=720 h=720
         const url = item.imageId.startsWith('http')
           ? item.imageId
-          : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_405,c_fill,g_auto/${item.imageId}`;
+          : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_720,c_fill,g_auto/${item.imageId}`;
         imgHtml = `<img
           ${i === 0 ? `src="${url}"` : `data-src="${url}"`}
           alt="${item.title}"
           class="highlight-img${i > 0 ? ' lazy' : ''}"
-          width="720" height="405"
+          width="720" height="720"
           loading="${i === 0 ? 'eager' : 'lazy'}"
         />`;
       } else {

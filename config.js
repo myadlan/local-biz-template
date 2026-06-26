@@ -61,10 +61,10 @@ const CONFIG = {
      *  Use full URL if image is NOT on Cloudinary (starts with https://).
      */
     images: [
-      { id: "samples/landscapes/nature-mountains", caption: "Caltex Sungai Besi — Main Forecourt" },
-      { id: "samples/landscapes/architecture-signs", caption: "Full-Service Pump Area" },
-      { id: "samples/food/dessert-on-a-plate", caption: "StarMart Convenience Store" },
-      { id: "samples/people/smiling-man",      caption: "Friendly Service, Every Visit" },
+      { id: "caltex-surau_pjc9tq",      caption: "Caltex Sungai Besi — Exterior View" },
+      { id: "caltex-drink_gxhmhn",       caption: "Free Drinks Every Friday — Infaq Program" },
+      { id: "caltex-familymart_etattb",  caption: "Family Mart — Open 24 Hours" },
+      { id: "caltex-cbtl2_hkrzkp",       caption: "The Coffee Bean & Tea Leaf" },
     ],
     /*
      *  Carousel image dimensions (pixels)
@@ -131,22 +131,27 @@ const CONFIG = {
    * ---------------------------------------------------------- */
   highlights: [
     {
-      imageId:     "samples/landscapes/architecture-signs",
+      imageId:     "caltex-surau_pjc9tq",
       title:       "Spacious & Comfortable Surau",
       description: "Perform your prayers in peace before continuing your journey. Our surau is well-maintained, air-conditioned, and open 24 hours.",
     },
     {
-      imageId:     "samples/food/dessert-on-a-plate",
-      title:       "Refresh & Restock for the Journey",
-      description: "Coffee Bean and Family Mart on-site — grab a hot drink, snacks, and everything you need before hitting the highway.",
+      imageId:     "caltex-familymart_etattb",
+      title:       "Family Mart — Open 24 Hours",
+      description: "Stock up on snacks, drinks, and essentials any time of the day or night. Family Mart is always ready for you.",
     },
     {
-      imageId:     "samples/landscapes/nature-mountains",
-      title:       "Clean & Well-Maintained Toilets",
-      description: "Our restrooms are cleaned regularly and consistently rated among the best on this route. Travel in comfort.",
+      imageId:     "caltex-cbtl2_hkrzkp",
+      title:       "The Coffee Bean & Tea Leaf",
+      description: "Grab your favourite coffee or tea before hitting the road. Our in-station Coffee Bean is open and ready to fuel your journey.",
     },
     {
-      imageId:     "samples/people/smiling-man",
+      imageId:     "caltex-drink_gxhmhn",
+      title:       "Free Drinks Every Friday",
+      description: "Every Friday, we give back. Enjoy complimentary drinks as part of our Infaq program — our way of saying thank you to our community.",
+    },
+    {
+      imageId:     "",
       title:       "Full Pump Service",
       description: "Stay in your car while our friendly team fills up your tank and cleans your windscreen — completely free of charge.",
     },

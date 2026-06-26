@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://connect.facebook.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#E31837" />
+  <title>Local Business Profile</title>
+</head>
+
+<body>
+<div class="page-wrapper">
+
+  <!-- ══════════════════════════════
+       1. BUSINESS HEADER
+  ══════════════════════════════ -->
+  <section class="biz-header" aria-labelledby="biz-name">
+    <h1 id="biz-name" class="biz-name">Loading…</h1>
+    <div class="biz-meta">
+      <span id="biz-category" class="biz-category"></span>
+      <span class="biz-separator">·</span>
+      <span id="biz-open-badge" class="biz-open-badge"></span>
+    </div>
+    <div class="biz-rating-row">
+      <span id="biz-rating-num" class="biz-rating-num"></span>
+      <span id="biz-stars" class="biz-stars"></span>
+      <span id="biz-review-count" class="biz-review-count"></span>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       2. TAB NAVIGATION
+  ══════════════════════════════ -->
+  <nav class="tabs-nav" role="tablist" aria-label="Profile sections">
+    <button class="tab-btn active" role="tab" data-tab="overview"  aria-selected="true">Overview</button>
+    <button class="tab-btn"        role="tab" data-tab="services"  aria-selected="false">Services</button>
+    <button class="tab-btn"        role="tab" data-tab="reviews"   aria-selected="false">Reviews</button>
+  </nav>
+
+
+  <!-- ══════════════════════════════
+       3. TAB CONTENT
+  ══════════════════════════════ -->
+  <div class="tab-content">
+
+    <!-- ── OVERVIEW ── -->
+    <div id="panel-overview" class="tab-panel active">
+
+      <!-- Carousel — 2 visible, promo is slide 0 -->
+      <section class="carousel-section" aria-label="Business photos">
+        <div class="carousel-viewport">
+          <div id="carousel-track" class="carousel-track" role="listbox" aria-live="polite"></div>
+        </div>
+        <div id="carousel-dots" class="carousel-dots" role="tablist" aria-label="Select photo"></div>
+      </section>
+
+      <!-- 4 action buttons -->
+      <section class="action-buttons-section" aria-label="Quick actions">
+        <div id="action-buttons" class="action-buttons"></div>
+      </section>
+
+      <!-- Business Details -->
+      <section class="details-section" aria-label="Business details">
+        <div id="business-details"></div>
+      </section>
+
+    </div><!-- /panel-overview -->
+
+
+    <!-- ── SERVICES ── -->
+    <div id="panel-services" class="tab-panel">
+      <section class="services-panel" aria-label="Services & highlights">
+        <div id="highlights-list" class="highlights-list"></div>
+      </section>
+    </div><!-- /panel-services -->
+
+
+    <!-- ── REVIEWS ── -->
+    <div id="panel-reviews" class="tab-panel">
+      <section class="reviews-section" aria-label="Customer reviews">
+        <div class="reviews-header">
+          <div class="reviews-summary">
+            <div id="reviews-big-rating" class="reviews-big-rating">5.0</div>
+            <div>
+              <div id="reviews-big-stars" class="reviews-big-stars"></div>
+              <div style="font-size:0.72rem;color:var(--color-text-muted);margin-top:2px;">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div id="reviews-list" class="reviews-list"></div>
+      </section>
+    </div><!-- /panel-reviews -->
+
+  </div><!-- /tab-content -->
+
+
+  <!-- ══════════════════════════════
+       STICKY BOTTOM BAR
+  ══════════════════════════════ -->
+  <div class="sticky-bar" role="navigation" aria-label="Primary actions">
+    <button class="sticky-btn sticky-btn-secondary" id="sticky-directions" aria-label="Get Directions">
+      <i class="fa-solid fa-diamond-turn-right"></i>
+      Directions
+    </button>
+    <button class="sticky-btn sticky-btn-primary" id="sticky-call" aria-label="Call Now">
+      <i class="fa-solid fa-phone"></i>
+      Call Now
+    </button>
+  </div>
+
+</div><!-- /page-wrapper -->
+
+
+<!-- ══════════════════════════════
+     PROMOTION MODAL
+══════════════════════════════ -->
+<div id="promo-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-sheet">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <button id="modal-close" class="modal-close" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div id="modal-form-state">
+      <div class="modal-header">
+        <div class="modal-icon"><i class="fa-solid fa-gift"></i></div>
+        <h2 id="modal-title" class="modal-title"></h2>
+        <p  id="modal-desc"  class="modal-desc"></p>
+      </div>
+      <div class="modal-body">
+        <div class="form-group" id="field-name">
+          <label class="form-label" for="input-name"></label>
+          <input type="text"  id="input-name"  class="form-input" autocomplete="name"  enterkeyhint="next" />
+          <span class="form-error" id="error-name" aria-live="polite"></span>
+        </div>
+        <div class="form-group" id="field-phone">
+          <label class="form-label" for="input-phone"></label>
+          <div class="input-prefix-wrap">
+            <span class="input-prefix">+60</span>
+            <input type="tel" id="input-phone" class="form-input has-prefix" autocomplete="tel" inputmode="numeric" pattern="[0-9]*" maxlength="11" enterkeyhint="next" />
+          </div>
+          <span class="form-error" id="error-phone" aria-live="polite"></span>
+        </div>
+        <div class="form-group" id="field-email" style="display:none;">
+          <label class="form-label" for="input-email"></label>
+          <input type="email" id="input-email" class="form-input" autocomplete="email" inputmode="email" enterkeyhint="send" />
+          <span class="form-error" id="error-email" aria-live="polite"></span>
+        </div>
+        <button id="promo-submit" class="promo-submit-btn" type="button">
+          <span id="submit-label"></span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <p class="form-privacy">
+          <i class="fa-solid fa-lock"></i>
+          Your information is safe and will not be shared.
+        </p>
+      </div>
+    </div>
+    <div id="modal-success-state" hidden>
+      <div class="modal-success">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3 id="success-title"   class="success-title"></h3>
+        <p  id="success-message" class="success-message"></p>
+        <button id="modal-success-close" class="promo-submit-btn" style="margin-top:24px;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- SCRIPTS -->
+<script src="config.js"></script>
+<script src="tracker.js"></script>
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Reviews big rating
+    const bigRating = document.getElementById('reviews-big-rating');
+    const bigStars  = document.getElementById('reviews-big-stars');
+    if (bigRating) bigRating.textContent = CONFIG.business.rating;
+    if (bigStars)  bigStars.innerHTML = Array.from({length:5},(_,i) =>
+      i < Math.round(parseFloat(CONFIG.business.rating))
+        ? '<i class="fa-solid fa-star"></i>'
+        : '<i class="fa-regular fa-star"></i>'
+    ).join('');
+
+    // Sticky bar
+    document.getElementById('sticky-directions')?.addEventListener('click', () => {
+      window.open(CONFIG.business.mapEmbed, '_blank');
+      Tracker.fireAll('directions');
+    });
+    document.getElementById('sticky-call')?.addEventListener('click', () => {
+      window.location.href = `tel:${CONFIG.business.phone.replace(/[\s-]/g,'')}`;
+      Tracker.fireAll('call');
+    });
+  });
+</script>
+
+</body>
+</html>

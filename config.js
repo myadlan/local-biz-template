@@ -61,7 +61,8 @@ const CONFIG = {
      *  Use full URL if image is NOT on Cloudinary (starts with https://).
      */
     images: [
-      { id: "caltex-surau_pjc9tq",      caption: "Caltex Sungai Besi — Exterior View" },
+      { id: "caltex-outside_zcmy0s",     caption: "Caltex Sungai Besi — Exterior View" },
+      { id: "caltex-surau_pjc9tq",       caption: "Surau — Open 24 Hours" },
       { id: "caltex-drink_gxhmhn",       caption: "Free Drinks Every Friday — Infaq Program" },
       { id: "caltex-familymart_etattb",  caption: "Family Mart — Open 24 Hours" },
       { id: "caltex-cbtl2_hkrzkp",       caption: "The Coffee Bean & Tea Leaf" },
@@ -149,11 +150,6 @@ const CONFIG = {
       imageId:     "caltex-drink_gxhmhn",
       title:       "Free Drinks Every Friday",
       description: "Every Friday, we give back. Enjoy complimentary drinks as part of our Infaq program — our way of saying thank you to our community.",
-    },
-    {
-      imageId:     "",
-      title:       "Full Pump Service",
-      description: "Stay in your car while our friendly team fills up your tank and cleans your windscreen — completely free of charge.",
     },
   ],
 

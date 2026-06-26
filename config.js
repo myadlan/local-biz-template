@@ -288,37 +288,37 @@ const CONFIG = {
      *  Leave imageId: "" to use a CSS-only gradient banner instead.
      */
     imageId:     "caltex-cbtl_avfszi",   // Cloudinary public ID — loaded as WebP 4:3
-    imageAlt:    "Promosi Eksklusif — Dapatkan Tawaran Istimewa",
+    imageAlt:    "Exclusive Promotion — Claim Your Special Offer",
 
     /*
      *  Text overlay on the banner (shown when imageId is "").
      *  If imageId is set, these are hidden (your image carries the message).
      */
-    badge:       "TAWARAN TERHAD",
-    headline:    "Dapatkan Promosi\nEksklusif Kami",
-    subtext:     "Daftar sekarang dan nikmati diskaun istimewa untuk pelanggan baru.",
+    badge:       "LIMITED OFFER",
+    headline:    "Get Our Exclusive\nPromotion",
+    subtext:     "Register now and enjoy special discounts for new customers.",
 
     /*
      *  Modal / Lead Form copy
      */
-    modalTitle:  "Tuntut Promosi Anda",
-    modalDesc:   "Isi maklumat di bawah. Kami akan hubungi anda dalam masa 24 jam.",
+    modalTitle:  "Claim Your Promotion",
+    modalDesc:   "Fill in your details below. We will reach out within 24 hours.",
     buttonLabel: "Get Promotion",   // CTA button text inside modal
 
     /*
      *  Form fields — set required: false to make optional
      */
     fields: {
-      name:  { label: "Nama Penuh",    placeholder: "Contoh: Ahmad Faris", required: true  },
-      phone: { label: "No. Telefon",   placeholder: "0123456789",          required: true  },
-      email: { label: "E-mel",         placeholder: "email@anda.com",      required: false },
+      name:  { label: "Full Name",    placeholder: "e.g. Ahmad Faris",    required: true  },
+      phone: { label: "Phone Number", placeholder: "0123456789",           required: true  },
+      email: { label: "Email",        placeholder: "email@example.com",    required: false },
     },
 
     /*
      *  Success message after form submission
      */
-    successTitle:   "Terima kasih!",
-    successMessage: "Kami akan menghubungi anda dalam masa 24 jam. Semak WhatsApp anda.",
+    successTitle:   "Thank you!",
+    successMessage: "We will be in touch within 24 hours. Keep an eye on your WhatsApp.",
 
     /*
      *  Webhook — Google Apps Script Web App URL

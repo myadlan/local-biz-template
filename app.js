@@ -181,10 +181,12 @@ const App = (() => {
       `<button class="carousel-dot${i===0?' active':''}" data-index="${i}" aria-label="Slide ${i+1}"></button>`
     ).join('');
 
-    // Promo slide click → open modal
-    track.querySelector('.carousel-slide[data-promo="1"]')?.addEventListener('click', () => {
-      openPromoModal();
-      Tracker.fireAll('promo_banner');
+    // Promo CTA button → open modal (button only, not whole slide)
+    track.addEventListener('click', e => {
+      if (e.target.closest('[data-promo-trigger="1"]')) {
+        openPromoModal();
+        Tracker.fireAll('promo_banner');
+      }
     });
 
     // Touch swipe
@@ -210,7 +212,6 @@ const App = (() => {
 
     if (promo.imageId) {
       const cn  = CONFIG.cloudinary;
-      // Force WebP, 1:1 ratio matching carousel slide aspect-ratio
       const url = promo.imageId.startsWith('http')
         ? promo.imageId
         : `https://res.cloudinary.com/${cn.cloud}/image/upload/f_webp,q_auto,w_720,h_720,c_fill,g_auto/${promo.imageId}`;
@@ -221,17 +222,19 @@ const App = (() => {
           <span class="promo-badge">${promo.badge}</span>
           <div class="promo-headline">${promo.headline}</div>
           <div class="promo-subtext">${promo.subtext}</div>
-          <div class="promo-cta-pill">
-            <i class="fa-solid fa-gift"></i>
-            ${promo.buttonLabel}
-          </div>
         </div>`;
     }
 
     return `
-      <div class="carousel-slide promo-slide" data-index="${i}" data-promo="1" role="button" tabindex="0" aria-label="View promotion — ${promo.badge}">
+      <div class="carousel-slide promo-slide" data-index="${i}" data-promo="1">
         ${inner}
         <div class="promo-slide-badge-overlay"><i class="fa-solid fa-tag"></i> Promo</div>
+        <div class="promo-cta-overlay">
+          <button class="promo-cta-btn" data-promo-trigger="1" aria-label="${promo.buttonLabel}">
+            <i class="fa-solid fa-gift"></i>
+            ${promo.buttonLabel}
+          </button>
+        </div>
       </div>`;
   }
 

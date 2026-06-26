@@ -136,8 +136,40 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* Promo slide */
-.promo-slide { cursor: pointer; }
-.promo-slide:active { transform: scale(0.985); transition: transform 0.1s; }
+.promo-slide { cursor: default; }
+.promo-slide:active { transform: none; }
+
+/* "Get Promotion" button overlay — bottom centre */
+.promo-cta-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;   /* let swipe pass through the container */
+  z-index: 3;
+}
+
+.promo-cta-btn {
+  pointer-events: all;    /* only the button itself is clickable */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  transition: transform 0.12s, opacity 0.15s;
+  white-space: nowrap;
+}
+.promo-cta-btn:hover  { opacity: 0.92; }
+.promo-cta-btn:active { transform: scale(0.95); }
 
 .promo-slide-badge-overlay {
   position: absolute;

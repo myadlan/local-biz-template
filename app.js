@@ -407,8 +407,68 @@ const App = (() => {
   }
 
   /* ────────────────────────────────
-   *  RENDER — Service Highlight Cards (1:1 image + text)
+   *  RENDER — CaltexGO Loyalty Tab
    * ──────────────────────────────── */
+  function renderCaltexGO() {
+    const container = document.getElementById('caltexgo-panel');
+    if (!container) return;
+    const cfg = CONFIG.caltexgo;
+    if (!cfg) return;
+
+    const bonusChip = cfg.welcomeBonus
+      ? `<span class="cgo-chip"><i class="fa-solid fa-gift"></i> Welcome Bonus ${cfg.welcomeBonus}</span>`
+      : '';
+    const rateChip = cfg.pointsRate
+      ? `<span class="cgo-chip cgo-chip-alt"><i class="fa-solid fa-bolt"></i> ${cfg.pointsRate}</span>`
+      : '';
+
+    const benefitCards = (cfg.benefits || []).map(b => `
+      <div class="cgo-benefit">
+        <div class="cgo-benefit-icon"><i class="${b.icon}"></i></div>
+        <div class="cgo-benefit-body">
+          <div class="cgo-benefit-title">${b.title}</div>
+          <div class="cgo-benefit-desc">${b.desc}</div>
+        </div>
+      </div>`).join('');
+
+    container.innerHTML = `
+      <!-- Hero -->
+      <div class="cgo-hero">
+        <div class="cgo-logo-row">
+          <div class="cgo-logo-icon"><i class="fa-solid fa-circle-nodes"></i></div>
+          <div>
+            <div class="cgo-hero-title">${cfg.headline}</div>
+            <div class="cgo-hero-sub">${cfg.subtext}</div>
+          </div>
+        </div>
+        <div class="cgo-chips">${bonusChip}${rateChip}</div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="cgo-benefits-list">${benefitCards}</div>
+
+      <!-- Download CTA -->
+      <div class="cgo-download-section">
+        <div class="cgo-download-label">Download CaltexGO</div>
+        <div class="cgo-store-buttons">
+          <a href="${cfg.appStoreUrl}" target="_blank" rel="noopener" class="cgo-store-btn" aria-label="Download on App Store">
+            <i class="fa-brands fa-apple cgo-store-icon"></i>
+            <div class="cgo-store-text">
+              <span class="cgo-store-sub">Download on the</span>
+              <span class="cgo-store-name">App Store</span>
+            </div>
+          </a>
+          <a href="${cfg.playStoreUrl}" target="_blank" rel="noopener" class="cgo-store-btn" aria-label="Get it on Google Play">
+            <i class="fa-brands fa-google-play cgo-store-icon"></i>
+            <div class="cgo-store-text">
+              <span class="cgo-store-sub">Get it on</span>
+              <span class="cgo-store-name">Google Play</span>
+            </div>
+          </a>
+        </div>
+        ${cfg.learnMoreUrl ? `<a href="${cfg.learnMoreUrl}" target="_blank" rel="noopener" class="cgo-learn-more">Learn more about Caltex Rewards <i class="fa-solid fa-arrow-right"></i></a>` : ''}
+      </div>`;
+  }
   function renderHighlights() {
     const container = document.getElementById('highlights-list');
     if (!container) return;
@@ -726,6 +786,7 @@ const App = (() => {
     renderButtons();
     renderDetails();
     renderHighlights();
+    renderCaltexGO();
     renderReviews();
     initTabs();
     Tracker.init();

@@ -236,7 +236,46 @@ const CONFIG = {
   },
 
   /* ----------------------------------------------------------
-   *  8. PROMOTION BANNER + LEAD FORM
+   *  9. CALTEXGO — Loyalty programme tab
+   * ---------------------------------------------------------- */
+  caltexgo: {
+    appStoreUrl:  "https://apps.apple.com/my/app/caltexgo-rewards/id1607535654",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.chevron.caltexgo.prod",
+    learnMoreUrl: "https://www.caltex.com/my/rewards-and-offers/caltexgo.html",
+
+    headline:    "CaltexGO + Rewards",
+    subtext:     "Tap, Pump & Go. Earn points every time you fuel up — pay in-app, redeem rewards, and enjoy exclusive partner deals.",
+
+    welcomeBonus: "500 pts",      // shown in the badge chip — update or set "" to hide
+    pointsRate:   "2 pts / litre",
+
+    benefits: [
+      {
+        icon:  "fa-solid fa-star",
+        title: "Earn Points Every Fill-Up",
+        desc:  "Get 2 Caltex Points per litre of fuel — no minimum spend, no hassle.",
+      },
+      {
+        icon:  "fa-solid fa-mobile-screen-button",
+        title: "Tap & Pay from Your Phone",
+        desc:  "Pay contactlessly via the app. No need to step out — stay in your car.",
+      },
+      {
+        icon:  "fa-solid fa-tag",
+        title: "Exclusive Partner Rewards",
+        desc:  "Redeem vouchers from FamilyMart, Watsons, Grab, Touch 'n Go, and more.",
+      },
+      {
+        icon:  "fa-solid fa-birthday-cake",
+        title: "Birthday Bonus",
+        desc:  "500 bonus points (worth RM5) credited automatically on your birthday month.",
+      },
+    ],
+  },
+
+  /* ----------------------------------------------------------
+   *  10. SEO / META TAGS
+   * ---------------------------------------------------------- */
    * ---------------------------------------------------------- */
   promotion: {
     /*

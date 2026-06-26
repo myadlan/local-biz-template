@@ -266,7 +266,7 @@ const CONFIG = {
         desc:  "Redeem vouchers from FamilyMart, Watsons, Grab, Touch 'n Go, and more.",
       },
       {
-        icon:  "fa-solid fa-birthday-cake",
+        icon:  "fa-solid fa-cake-candles",
         title: "Birthday Bonus",
         desc:  "500 bonus points (worth RM5) credited automatically on your birthday month.",
       },
@@ -275,7 +275,6 @@ const CONFIG = {
 
   /* ----------------------------------------------------------
    *  10. SEO / META TAGS
-   * ---------------------------------------------------------- */
    * ---------------------------------------------------------- */
   promotion: {
     /*
@@ -348,7 +347,7 @@ const CONFIG = {
   },
 
   /* ----------------------------------------------------------
-   *  9. SEO / META TAGS
+   *  11. SEO / META TAGS
    * ---------------------------------------------------------- */
   seo: {
     title:       "Caltex Sungai Besi — Petrol Station Open 24 Hours",

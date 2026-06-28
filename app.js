@@ -717,6 +717,23 @@ const App = (() => {
     };
 
     try {
+      // ── Netlify Forms submission ──────────────────────────────
+      const formData = new FormData();
+      formData.append('form-name', 'promo-lead');
+      formData.append('name',      name);
+      formData.append('phone',     phone);
+      formData.append('email',     email);
+      formData.append('business',  CONFIG.business.name);
+      formData.append('promotion', CONFIG.promotion.modalTitle);
+      formData.append('source',    window.location.href);
+
+      await fetch('/', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    new URLSearchParams(formData).toString(),
+      });
+
+      // ── Legacy webhook (optional — set webhookUrl in config) ──
       const webhookUrl = CONFIG.promotion.webhookUrl;
       if (webhookUrl) {
         await fetch(webhookUrl, {

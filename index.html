@@ -253,6 +253,22 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════
+     NETLIFY FORM DETECTION (hidden)
+     Required for Netlify to detect the form at build time.
+══════════════════════════════ -->
+<form name="promo-lead" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="promo-lead" />
+  <input name="bot-field" />
+  <input type="text"  name="name" />
+  <input type="tel"   name="phone" />
+  <input type="email" name="email" />
+  <input type="hidden" name="business" />
+  <input type="hidden" name="promotion" />
+  <input type="hidden" name="source" />
+</form>
+
+
 <!-- TOAST -->
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 

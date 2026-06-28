@@ -200,7 +200,7 @@ const CONFIG = {
     },
 
     googleAnalytics: {
-      measurementId: "G-XXXXXXXXXX",    // e.g. G-ABC123XYZ
+      measurementId: "AW-17679984793",
       events: {
         directions: { name: "generate_lead",    params: { event_category: "engagement", event_label: "directions" } },
         call:       { name: "generate_lead",    params: { event_category: "engagement", event_label: "call" } },
@@ -216,7 +216,7 @@ const CONFIG = {
     },
 
     googleAds: {
-      conversionId: "AW-XXXXXXXXX",    // e.g. AW-123456789
+      conversionId: "AW-17679984793",
       /*
        *  Map each action to a Google Ads conversion label.
        *  Get labels from: Google Ads > Goals > Conversions > Edit conversion action.

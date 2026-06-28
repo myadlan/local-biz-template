@@ -222,7 +222,7 @@ const CONFIG = {
        *  Get labels from: Google Ads > Goals > Conversions > Edit conversion action.
        */
       conversions: {
-        directions: { label: "LABEL_DIRECTIONS" },
+        directions: { label: "6TTmCP3omMccEJnRvO5B" },
         call:       { label: "LABEL_CALL" },
         whatsapp:   { label: "LABEL_WHATSAPP" },
         website:    { label: "LABEL_WEBSITE" },
@@ -230,7 +230,7 @@ const CONFIG = {
         save:         null,
         carousel:     null,
         promo_banner: null,
-        promo_lead:   { label: "LABEL_PROMO_LEAD" },
+        promo_lead:   { label: "DZqACP7-r8ccEJnRvO5B" },
       },
     },
 
@@ -342,7 +342,7 @@ const CONFIG = {
         formSubmit:  { name: "generate_lead",    params: { event_category: "promotion", event_label: "form_submit"  } },
       },
       googleAds: {
-        formSubmit: { label: "LABEL_PROMO_LEAD" },  // set null to skip
+        formSubmit: { label: "DZqACP7-r8ccEJnRvO5B" },  // set null to skip
       },
     },
   },

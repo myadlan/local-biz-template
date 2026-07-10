@@ -4,234 +4,305 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Singapore Maths: The Method That Works — Live Webinar for Parents | EduReach</title>
-<meta name="description" content="Learn the Singapore Maths CPA method directly from a teacher currently teaching in Singapore. Live webinar for parents. 1 August 2026, 10.30am. RM29, credited toward enrollment.">
+<meta name="description" content="Learn the Singapore Maths CPA method directly from a teacher currently teaching in Singapore. Live webinar for parents. 1 August 2026, 10.30am. RM49.90, credited toward enrollment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-* {
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 0 !important;
-  box-sizing: border-box;
-  margin: 0;
+:root {
+  --blue: #307FE2;
+  --blue-lt: #00A9E0;
+  --yellow: #FFC72C;
+  --navy: #0D1A2E;
+  --red: #FC4C02;
+  --tint: #EAF3FD;
+  --gray: #5A6B80;
 }
-body { color: #000; background: #fff; font-size: 16px; line-height: 1.5; }
-div { padding: 5px; }
-h1 { font-size: 44px; line-height: 1.1; font-weight: bold; }
-h2 { font-size: 26px; font-weight: bold; }
-h3 { font-size: 19px; font-weight: bold; }
-a { color: inherit; text-decoration: underline; }
-ul { list-style: none; padding-left: 0; }
-li { margin: 7px 0; }
-img { display: block; width: 100%; border: 3px solid #000; }
+* { margin: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--navy);
+  background: #fff;
+  font-size: 17px;
+  line-height: 1.65;
+}
+h1, h2, h3 { font-family: 'Lexend', 'Inter', sans-serif; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; }
 
-.bg-A { background: #0044cc; color: #fff; } /* blue */
-.bg-B { background: #ffff00; color: #000; } /* yellow */
+/* Signature: bar-model divider */
+.barmodel { display: flex; gap: 4px; margin: 0 0 20px; }
+.barmodel span { height: 10px; border-radius: 3px; display: block; }
+.barmodel .b1 { width: 84px; background: var(--blue); }
+.barmodel .b2 { width: 52px; background: var(--yellow); }
+.barmodel .b3 { width: 28px; background: var(--blue-lt); }
 
-.hl { background: #ffff00; color: #000; padding: 0 3px; }
-.hl-red { background: #ffff00; color: #e00000; padding: 0 3px; }
+/* Topbar */
+.topbar {
+  background: var(--navy); color: #fff; text-align: center;
+  padding: 10px 16px; font-size: .92rem; font-weight: 600;
+}
+.topbar i { color: var(--yellow); margin-right: 8px; }
 
-.warn {
-  border: 3px dashed #e00000;
-  background: #fff; color: #000;
-  padding: 5px; margin: 12px 0;
-  font-weight: bold;
+/* Hero */
+.hero { background: linear-gradient(180deg, var(--tint) 0%, #fff 100%); padding: 72px 0 64px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.eyebrow {
+  display: inline-block; background: #fff; border: 1.5px solid var(--blue);
+  color: var(--blue); font-weight: 600; font-size: .85rem;
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+.hero h1 .payoff { color: var(--blue); }
+.hero h1 .payoff mark { background: var(--yellow); padding: 0 6px; border-radius: 6px; color: var(--navy); }
+.tagline { font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 1.2rem; color: var(--blue); margin: 14px 0 18px; }
+.hero p.lead { color: var(--gray); max-width: 52ch; }
+.hero-img { border-radius: 16px; box-shadow: 0 20px 50px rgba(13,26,46,.15); }
+
+.badge-red {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #FFF0E9; color: var(--red); border: 1.5px solid var(--red);
+  font-weight: 700; font-size: .9rem; padding: 8px 16px; border-radius: 999px;
+  margin: 22px 0 6px;
 }
 
-.wrap { max-width: 700px; margin: 0 auto; }
-.sec  { border-bottom: 3px solid #000; }
-
-.cta {
-  display: inline-block; background: #ffff00; color: #000;
-  border: 3px solid #000; padding: 14px 22px; font-size: 20px;
-  font-weight: bold; text-align: center; text-decoration: none;
-  margin: 12px 0;
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.05rem;
+  padding: 16px 32px; border-radius: 12px; text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
-.cta-full { display: block; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--yellow); color: var(--navy); box-shadow: 0 8px 24px rgba(255,199,44,.45); }
+.btn-note { font-size: .88rem; color: var(--gray); margin-top: 12px; }
+.btn-note strong { color: var(--navy); }
 
-table { border-collapse: collapse; width: 100%; margin: 8px 0; }
-td, th { border: 2px solid #000; padding: 6px; }
+/* Event details strip */
+.details { background: var(--blue); color: #fff; padding: 40px 0; }
+.details-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.details-grid i { font-size: 1.6rem; color: var(--yellow); margin-bottom: 10px; }
+.details-grid .lbl { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
+.details-grid .val { font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 1.05rem; }
 
-details { border: 2px solid #000; margin: 6px 0; }
-details summary { padding: 8px; font-weight: bold; cursor: pointer; list-style: none; }
-details[open] summary { background: #ffff00; color: #000; }
-details p { padding: 8px; border-top: 2px solid #000; }
-
-.img-ph {
-  border: 3px dashed #000; text-align: center;
-  padding: 5px; margin: 12px 0; background: #fff; color: #000;
+/* Speaker */
+.speaker-card {
+  display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center;
+  background: var(--tint); border-radius: 20px; padding: 40px;
 }
-.center { text-align: center; }
-blockquote { border-left: 6px solid #0044cc; margin: 12px 0; padding: 5px; font-style: normal; }
+.speaker-card img { border-radius: 16px; width: 300px; height: 300px; object-fit: cover; }
+.speaker-card .role { color: var(--blue); font-weight: 600; margin: 4px 0 14px; }
+.cred { display: inline-flex; align-items: center; gap: 10px; background: #fff; border-radius: 10px; padding: 10px 16px; font-weight: 600; font-size: .95rem; margin-top: 16px; }
+.cred i { color: var(--blue); }
 
-@media (max-width: 600px) {
-  h1 { font-size: 30px; }
-  h2 { font-size: 21px; }
+/* Learn / benefits lists */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card {
+  background: #fff; border: 1px solid #E1E9F4; border-radius: 16px;
+  padding: 26px; display: flex; gap: 16px; align-items: flex-start;
+}
+.card i { color: var(--blue); font-size: 1.3rem; margin-top: 4px; }
+.card.on-tint { background: #fff; }
+.sec-tint { background: var(--tint); }
+.cpa-img { border-radius: 16px; margin-top: 40px; box-shadow: 0 16px 40px rgba(13,26,46,.12); }
+
+/* Testimonials */
+.sec-navy { background: var(--navy); color: #fff; }
+.sec-navy .barmodel .b1 { background: var(--yellow); }
+.t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.t-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 28px; }
+.t-card .stars { color: var(--yellow); margin-bottom: 14px; }
+.t-card .who { margin-top: 16px; font-weight: 600; font-size: .92rem; color: var(--blue-lt); }
+
+/* FAQ */
+details { border: 1px solid #E1E9F4; border-radius: 12px; margin-bottom: 12px; background: #fff; }
+details summary {
+  cursor: pointer; list-style: none; padding: 18px 22px;
+  font-family: 'Lexend', sans-serif; font-weight: 600;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--blue); font-size: .8rem; transition: transform .2s; }
+details[open] summary::after { transform: rotate(180deg); }
+details[open] summary { color: var(--blue); }
+details .ans { padding: 0 22px 18px; color: var(--gray); }
+
+/* Final CTA */
+.final { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%); color: #fff; text-align: center; }
+.final .badge-red { background: #fff; }
+.final .btn-note { color: rgba(255,255,255,.85); }
+.final .btn-note strong { color: #fff; }
+
+footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: center; padding: 28px 16px; font-size: .85rem; }
+
+@media (max-width: 860px) {
+  section { padding: 52px 0; }
+  .hero-grid, .speaker-card, .grid-2 { grid-template-columns: 1fr; }
+  .t-grid { grid-template-columns: 1fr; }
+  .details-grid { grid-template-columns: repeat(2, 1fr); }
+  .speaker-card { padding: 28px; }
+  .speaker-card img { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div class="bg-A sec center" style="font-weight:bold;">
-  &#9888; LIVE WEBINAR &bull; 1 AUGUST 2026 &bull; 10.30AM &bull; ONLY 100 SEATS &bull; RM29
+<div class="topbar">
+  <i class="fa-solid fa-video"></i>Live Webinar &bull; Saturday, 1 August 2026 &bull; 10.30am–12.00pm &bull; Google Meet
 </div>
 
 <!-- HERO -->
-<div class="sec">
-  <div class="wrap">
-    <p style="font-weight:bold;">A Live Introductory Webinar for Parents</p>
-    <h1>Singapore Maths: <span class="hl-red">The Method That Works</span></h1>
-    <h2>Think Smart, Solve Fast</h2>
-    <p style="margin-top:10px;">Is your child <b>struggling to keep up</b> — or ready to get ahead? Learn the Singapore Maths approach directly from a teacher <span class="hl">currently teaching in Singapore's system</span> — not a secondhand explanation.</p>
-
-    <img src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,h_675,c_fill,g_auto,f_auto,q_auto/v1783643749/edureach-hero-math_ddt5dx.png" width="1200" height="675" alt="Child learning Singapore Maths method" style="margin:12px 0;">
-
-    <div class="warn">&#9888; Limited to 100 seats — secure your seat early</div>
-    <a class="cta cta-full" href="https://toyyibpay.com/Singapore-Math-Success">&#10140; SECURE MY SEAT — RM29</a>
-    <p class="center" style="font-size:14px;"><b>RM29 fully credited</b> toward your child's first month at EduReach if you enroll after the session.</p>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><i class="fa-solid fa-users" style="margin-right:8px;"></i>A Live Introductory Webinar for Parents</span>
+      <h1>Singapore Maths: <span class="payoff">The Method That <mark>Works</mark></span></h1>
+      <p class="tagline">Think Smart, Solve Fast</p>
+      <p class="lead">Is your child struggling to keep up — or ready to get ahead? Learn the Singapore Maths approach directly from a teacher currently teaching in Singapore's system — not a secondhand explanation.</p>
+      <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Limited to 100 seats — secure yours early</div>
+      <div>
+        <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Secure My Seat — RM49.90</a>
+      </div>
+    </div>
+    <img class="hero-img" src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,c_scale,f_auto,q_auto/v1783643749/edureach-hero-math_ddt5dx.png" alt="Child learning with the Singapore Maths method">
   </div>
-</div>
+</header>
 
 <!-- EVENT DETAILS -->
-<div class="bg-B sec">
-  <div class="wrap">
-    <h2>Event Details</h2>
-    <table style="background:#fff;">
-      <tr><td><b>Date</b></td><td>Friday, 1 August 2026</td></tr>
-      <tr><td><b>Time</b></td><td>10.30am – 12.00pm (1.5 hours)</td></tr>
-      <tr><td><b>Platform</b></td><td>Online via Google Meet</td></tr>
-      <tr><td><b>Fee</b></td><td>RM29 (credited toward first month's enrollment)</td></tr>
-      <tr><td><b>Seats</b></td><td>Limited to 100 participants</td></tr>
-      <tr><td><b>Language</b></td><td>English</td></tr>
-    </table>
+<div class="details">
+  <div class="wrap details-grid">
+    <div><i class="fa-solid fa-calendar-day"></i><div class="lbl">Date</div><div class="val">Sat, 1 August 2026</div></div>
+    <div><i class="fa-solid fa-clock"></i><div class="lbl">Time</div><div class="val">10.30am – 12.00pm</div></div>
+    <div><i class="fa-solid fa-laptop"></i><div class="lbl">Platform</div><div class="val">Google Meet</div></div>
+    <div><i class="fa-solid fa-tag"></i><div class="lbl">Fee</div><div class="val">RM49.90, credited</div></div>
   </div>
 </div>
 
 <!-- SPEAKER -->
-<div class="sec">
+<section>
   <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
     <h2>Meet Your Speaker</h2>
-
-    <img src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_600,h_600,c_thumb,g_face,z_0.75,f_auto,q_auto/v1783643543/mot-sharifah_wghtxb.jpg" width="600" height="600" alt="Sharifah, Maths Teacher at EduReach Pte Ltd Singapore" loading="lazy" style="max-width:320px;margin:12px auto;">
-
-    <h3>Sharifah — Maths Teacher, EduReach Pte Ltd, Singapore</h3>
-    <p>[1–2 lines: years of experience, levels/streams taught — e.g. "X years teaching Primary Maths in Singapore, specialising in problem-solving heuristics and PSLE preparation."]</p>
-    <p style="margin-top:8px;">&#10004; Teaching <b>inside Singapore's system right now</b> — you're learning from the source, not a summary.</p>
+    <div class="speaker-card" style="margin-top:32px;">
+      <img src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_300,h_300,c_thumb,g_face,z_0.75,f_auto,q_auto/v1783643543/mot-sharifah_wghtxb.jpg" width="300" height="300" alt="Sharifah, Maths Teacher at EduReach Pte Ltd Singapore" loading="lazy">
+      <div>
+        <h3 style="font-size:1.5rem;">Sharifah</h3>
+        <p class="role">Maths Teacher, EduReach Pte Ltd, Singapore</p>
+        <p style="color:var(--gray);">Sharifah holds a degree in Software Engineering and teaches Maths at EduReach in Singapore — bringing a logical, structured problem-solving approach to how children learn the Singapore Maths method.</p>
+        <div class="cred"><i class="fa-solid fa-circle-check"></i>Teaching inside Singapore's system right now — learn from the source, not a summary.</div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- WHAT YOU'LL LEARN -->
-<div class="bg-A sec">
+<section class="sec-tint">
   <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
     <h2>What You'll Learn</h2>
-    <ul>
-      <li>&#10004; The core Singapore Maths method (<b>CPA approach</b>) explained simply — no jargon</li>
-      <li>&#10004; What makes Singapore's curriculum different — from someone <b>teaching it right now</b></li>
-      <li>&#10004; Common gaps in traditional methods — and <b>how to close them</b></li>
-      <li>&#10004; Live Q&amp;A with our Singapore-based tutor — ask about <b>your child's specific situation</b></li>
-    </ul>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-cubes"></i><div><h3>The CPA Approach, Explained Simply</h3><p style="color:var(--gray);">The core Singapore Maths method — Concrete, Pictorial, Abstract — with no jargon.</p></div></div>
+      <div class="card"><i class="fa-solid fa-flag"></i><div><h3>What Makes Singapore Different</h3><p style="color:var(--gray);">Straight from someone teaching the curriculum right now, not a summary.</p></div></div>
+      <div class="card"><i class="fa-solid fa-puzzle-piece"></i><div><h3>Gaps in Traditional Methods</h3><p style="color:var(--gray);">The common weaknesses in rote-learning approaches — and how to close them.</p></div></div>
+      <div class="card"><i class="fa-solid fa-comments"></i><div><h3>Live Q&amp;A</h3><p style="color:var(--gray);">Ask our Singapore-based tutor about your child's specific situation.</p></div></div>
+    </div>
+    <img class="cpa-img" src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,c_scale,f_auto,q_auto/v1783643984/edureach-cpa-math_ylk6gv.png" alt="The CPA approach: Concrete, Pictorial, Abstract" loading="lazy">
   </div>
-</div>
+</section>
 
 <!-- BENEFITS -->
-<div class="sec">
+<section>
   <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
     <h2>Why Parents Should Attend</h2>
-    <ul>
-      <li>&#10140; <b>Understand why your child struggles with maths</b> — it's usually the method, not the child</li>
-      <li>&#10140; <b>Learn how to support homework at home</b> — even if you were never "good at maths" yourself</li>
-      <li>&#10140; <b>Judge for yourself</b> whether Singapore Maths suits your child before committing to any tuition</li>
-      <li>&#10140; <b>Get answers live</b> — not from a blog post or YouTube video, but from a practising Singapore teacher</li>
-      <li>&#10140; <b>Zero-risk fee</b> — your RM29 becomes a discount if your child enrolls at EduReach after the session</li>
-    </ul>
-
-    <img src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,h_675,c_fill,g_auto,f_auto,q_auto/v1783643984/edureach-cpa-math_ylk6gv.png" width="1200" height="675" alt="CPA approach: Concrete, Pictorial, Abstract" loading="lazy" style="margin:12px 0;">
-
-    <p class="center"><a class="cta" href="https://toyyibpay.com/Singapore-Math-Success">&#10140; REGISTER NOW — RM29</a></p>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-lightbulb"></i><div><h3>Understand why your child struggles</h3><p style="color:var(--gray);">It's usually the method, not the child.</p></div></div>
+      <div class="card"><i class="fa-solid fa-house"></i><div><h3>Support homework at home</h3><p style="color:var(--gray);">Even if you were never "good at maths" yourself.</p></div></div>
+      <div class="card"><i class="fa-solid fa-scale-balanced"></i><div><h3>Judge for yourself</h3><p style="color:var(--gray);">See whether Singapore Maths suits your child before committing to any tuition.</p></div></div>
+      <div class="card"><i class="fa-solid fa-shield-halved"></i><div><h3>Zero-risk fee</h3><p style="color:var(--gray);">Your RM49.90 becomes a discount if your child enrolls at EduReach after the session.</p></div></div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Register Now — RM49.90</a>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- WHAT YOU'LL GET -->
+<section class="sec-tint">
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Every Participant Will Receive</h2>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-circle-play"></i><div><h3>Full Session Recording</h3><p style="color:var(--gray);">Rewatch the webinar anytime — nothing is missed even if you can't attend live.</p></div></div>
+      <div class="card"><i class="fa-solid fa-file-pen"></i><div><h3>Singapore Maths Online Test</h3><p style="color:var(--gray);">Let your child try the Singapore Maths style and see where they stand.</p></div></div>
+      <div class="card"><i class="fa-solid fa-certificate"></i><div><h3>Certificate of Participation</h3><p style="color:var(--gray);">A certificate issued to every registered participant after the session.</p></div></div>
+      <div class="card" style="border:1.5px solid var(--yellow); background:#FFFBEE;"><i class="fa-solid fa-trophy" style="color:var(--yellow);"></i><div><h3>Bonus: Top 3 Scorers Win</h3><p style="color:var(--gray);">The 3 highest scores in the online test each receive <strong style="color:var(--navy);">RM10 Touch 'n Go eWallet credit</strong>.</p></div></div>
+    </div>
+  </div>
+</section>
 
 <!-- TESTIMONIALS -->
-<div class="bg-B sec">
+<section class="sec-navy">
   <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
     <h2>What Parents Say</h2>
-
-    <blockquote style="background:#fff;">
-      <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p>"[Testimonial placeholder — e.g. 'My son used to cry over maths homework. After learning the bar model method, he finally understands word problems.']"</p>
-      <p><b>— Parent name, child's level (e.g. Puan Aina, mother of Year 4 student)</b></p>
-    </blockquote>
-
-    <blockquote style="background:#fff;">
-      <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p>"[Testimonial placeholder — e.g. 'I attended just to understand what Singapore Maths actually is. The teacher explained it so clearly, I enrolled my daughter the same week.']"</p>
-      <p><b>— Parent name, child's level</b></p>
-    </blockquote>
-
-    <blockquote style="background:#fff;">
-      <p>&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-      <p>"[Testimonial placeholder — e.g. 'Worth far more than RM29. I finally know how to help my child instead of just hiring more tuition blindly.']"</b></p>
-      <p><b>— Parent name, child's level</b></p>
-    </blockquote>
+    <div class="t-grid" style="margin-top:32px;">
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"My child refuses to learn with any other teacher because she is so comfortable learning with Cikgu!"</p>
+        <p class="who">— Puan Nora</p>
+      </div>
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"83% and 95% — thank you for your guidance, Cikgu."</p>
+        <p class="who">— Puan Hoe</p>
+      </div>
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Thank you, Cikgu. My child has started showing real interest in Maths. It used to be so hard to score. Now he's getting an A."</p>
+        <p class="who">— Ummu Arabi</p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
 <!-- FAQ -->
-<div class="sec">
-  <div class="wrap">
-    <h2>Frequently Asked Questions</h2>
-
-    <details>
-      <summary>&#10140; Is this webinar for parents or for children?</summary>
-      <p>This session is designed for <b>parents</b>. You'll learn how the Singapore Maths method works so you can understand and support your child's learning. Children are welcome to watch along, but the content is pitched at adults.</p>
-    </details>
-
-    <details>
-      <summary>&#10140; My child is weak in maths. Is this still relevant?</summary>
-      <p>Yes — especially for you. The webinar covers the common gaps in traditional methods that cause children to struggle, and how the Singapore approach closes them.</p>
-    </details>
-
-    <details>
-      <summary>&#10140; What age or level is this suitable for?</summary>
-      <p>The method applies from early primary through upper primary. If your child is between [Year 1 and Year 6 / Darjah 1–6], this session is relevant.</p>
-    </details>
-
-    <details>
-      <summary>&#10140; What happens after I pay RM29?</summary>
-      <p>You'll receive a confirmation with the Google Meet link via email/WhatsApp. A reminder will be sent before the session.</p>
-    </details>
-
-    <details>
-      <summary>&#10140; What does "RM29 credited" mean?</summary>
-      <p>If you decide to enroll your child at EduReach after the webinar, your RM29 registration fee is deducted from the first month's fee. Effectively, the webinar becomes free.</p>
-    </details>
-
-    <details>
-      <summary>&#10140; Will there be a recording?</summary>
-      <p>[Confirm: Yes — the recording will be shared with all registered participants / No — this is a live-only session.]</p>
-    </details>
-
-    <details>
-      <summary>&#10140; What if I can't attend on the day?</summary>
-      <p>[Confirm policy — e.g. recording provided, or transfer to next session.]</p>
-    </details>
+<section class="sec-tint">
+  <div class="wrap" style="max-width:800px;">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2 style="margin-bottom:32px;">Frequently Asked Questions</h2>
+    <details><summary>Is this webinar for parents or for children?</summary><p class="ans">This session is designed for parents. You'll learn how the Singapore Maths method works so you can understand and support your child's learning. Children are welcome to watch along, but the content is pitched at adults.</p></details>
+    <details><summary>My child is weak in maths. Is this still relevant?</summary><p class="ans">Yes — especially for you. The webinar covers the common gaps in traditional methods that cause children to struggle, and how the Singapore approach closes them.</p></details>
+    <details><summary>What age or level is this suitable for?</summary><p class="ans">The method applies from early primary through upper primary. If your child is between [Year 1 and Year 6 / Darjah 1–6], this session is relevant.</p></details>
+    <details><summary>What happens after I pay RM49.90?</summary><p class="ans">You'll receive a confirmation with the Google Meet link via email/WhatsApp. A reminder will be sent before the session.</p></details>
+    <details><summary>What does "RM49.90 credited" mean?</summary><p class="ans">If you decide to enroll your child at EduReach after the webinar, your RM49.90 registration fee is deducted from the first month's fee. Effectively, the webinar becomes free.</p></details>
+    <details><summary>Will there be a recording?</summary><p class="ans">Yes. Every registered participant receives the full session recording, so you can rewatch it or catch up if you miss the live session.</p></details>
+    <details><summary>What if I can't attend on the day?</summary><p class="ans">No problem — the full recording will be sent to you after the session, and you can still take the Singapore Maths online test at your own pace.</p></details>
   </div>
-</div>
+</section>
 
 <!-- FINAL CTA -->
-<div class="bg-A sec" id="daftar">
-  <div class="wrap center">
-    <h2>Don't Miss This Session</h2>
-    <p>Learn the method behind the world's <b>top-ranked maths curriculum</b> — directly from a teacher inside the system.</p>
-    <p style="margin-top:8px;"><b>Friday, 1 August 2026 &bull; 10.30am–12.00pm &bull; Google Meet</b></p>
-    <div class="warn">&#9888; Limited to 100 seats — once full, registration closes</div>
-    <a class="cta" href="https://toyyibpay.com/Singapore-Math-Success">&#10140; REGISTER NOW — RM29</a>
-    <p style="font-size:14px;">RM29 fully credited toward your child's first month at EduReach if you enroll after the session.</p>
+<section class="final">
+  <div class="wrap">
+    <h2>Give Your Child the Method Behind the World's Top-Ranked Maths Curriculum</h2>
+    <p style="margin:16px 0 6px; opacity:.9;">Saturday, 1 August 2026 &bull; 10.30am–12.00pm &bull; Live on Google Meet</p>
+    <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Limited to 100 seats — once full, registration closes</div>
+    <div style="margin-top:18px;">
+      <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Register Now — RM49.90</a>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-<div class="center" style="font-size:13px;">
-  <p>&copy; 2026 EduReach. All rights reserved.</p>
-</div>
+<footer>&copy; 2026 EduReach. All rights reserved.</footer>
 
 </body>
 </html>

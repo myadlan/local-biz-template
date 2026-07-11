@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Singapore Math Success: Think Smart, Solve Fast — Live Webinar for Parents | EduReach</title>
-<meta name="description" content="Discover proven Singapore Math strategies to help your child aged 7–12 solve problems with confidence, accuracy and speed. Live webinar for parents. 18–19 July 2026. RM49.90.">
+<meta name="description" content="Discover proven Singapore Math strategies to help your child aged 7–12 solve problems with confidence, accuracy and speed. Live webinar for parents. 1 August 2026. RM49.90.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -152,12 +152,43 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* Countdown */
+.countdown-wrap {
+  background: var(--navy); border-radius: 16px;
+  padding: 28px 24px; margin: 32px 0; text-align: center;
+}
+.countdown-wrap .cd-label {
+  font-family: 'Lexend', sans-serif; font-weight: 600;
+  font-size: .9rem; color: var(--yellow); text-transform: uppercase;
+  letter-spacing: .1em; margin-bottom: 16px;
+}
+.cd-timer { display: flex; justify-content: center; gap: 12px; }
+.cd-box {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px; padding: 14px 18px; min-width: 72px;
+}
+.cd-box .num {
+  font-family: 'Lexend', sans-serif; font-weight: 800;
+  font-size: 2.2rem; color: #fff; line-height: 1;
+  display: block;
+}
+.cd-box .unit {
+  font-size: .75rem; color: rgba(255,255,255,.6);
+  text-transform: uppercase; letter-spacing: .08em;
+  display: block; margin-top: 6px;
+}
+.cd-closed { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--yellow); }
+@media (max-width: 480px) {
+  .cd-box { min-width: 58px; padding: 10px 12px; }
+  .cd-box .num { font-size: 1.7rem; }
+}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <i class="fa-solid fa-video"></i>Live Online Webinar &bull; 18–19 July 2026 (Sat &amp; Sun) &bull; 2-Hour Session &bull; Google Meet &bull; Only 100 Seats
+  <i class="fa-solid fa-video"></i>Live Online Webinar &bull; Saturday, 1 August 2026 &bull; 2-Hour Session &bull; Google Meet &bull; Only 100 Seats
 </div>
 
 <!-- HERO -->
@@ -168,8 +199,7 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
       <h1>Singapore Math <span class="payoff"><mark>Success</mark></span></h1>
       <p class="tagline">Think Smart. Solve Fast.</p>
       <p class="lead">Discover the proven Singapore Math strategies that help children aged 7–12 solve problems with <strong>confidence</strong>, <strong>accuracy</strong>, and <strong>speed</strong>.</p>
-      <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Limited to 100 seats — secure yours early</div>
-      <div>
+      <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Limited to 100 seats — secure yours early</div>      <div>
         <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Secure My Seat — RM49.90</a>
       </div>
     </div>
@@ -180,10 +210,10 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
 <!-- EVENT DETAILS -->
 <div class="details">
   <div class="wrap details-grid">
-    <div><i class="fa-solid fa-calendar-day"></i><div class="lbl">Date</div><div class="val">18–19 July 2026 (Sat &amp; Sun)</div></div>
+    <div><i class="fa-solid fa-calendar-day"></i><div class="lbl">Date</div><div class="val">Saturday, 1 August 2026</div></div>
     <div><i class="fa-solid fa-clock"></i><div class="lbl">Duration</div><div class="val">2-Hour Live Session</div></div>
     <div><i class="fa-solid fa-laptop"></i><div class="lbl">Platform</div><div class="val">Google Meet</div></div>
-    <div><i class="fa-solid fa-tag"></i><div class="lbl">Fee</div><div class="val">RM49.90, credited</div></div>
+    <div><i class="fa-solid fa-tag"></i><div class="lbl">Fee</div><div class="val">RM49.90</div></div>
   </div>
 </div>
 
@@ -197,7 +227,7 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
       <div>
         <h3 style="font-size:1.5rem;">Sharifah</h3>
         <p class="role">Maths Teacher, EduReach Pte Ltd, Singapore</p>
-        <p style="color:var(--gray);">Sharifah holds a degree in Software Engineering and teaches Maths at EduReach in Singapore — bringing a logical, structured problem-solving approach to how children learn the Singapore Maths method.</p>
+        <p style="color:var(--gray);">Sharifah Md Kassim is an Engineer, Educator, and Author with a Bachelor of Information Technology and an Advanced Diploma in Computer Studies. A Certified Brain Gym Movement Facilitator, she specialises in designing engaging, movement-based learning experiences that sharpen children's focus, comprehension, and critical thinking. She has authored four published comic books — including three STEAM-based educational titles — and served as editor for over 20 educational assessment books. At EduReach in Singapore, Sharifah brings together technology, creativity, and proven pedagogy to help children aged 7–12 become confident, curious, and future-ready learners.</p>
         <div class="cred"><i class="fa-solid fa-circle-check"></i>Teaching inside Singapore's system right now — learn from the source, not a summary.</div>
       </div>
     </div>
@@ -287,7 +317,6 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
     <details><summary>My child is weak in maths. Is this still relevant?</summary><p class="ans">Yes — especially for you. The webinar covers the common gaps in traditional methods that cause children to struggle, and how the Singapore approach closes them.</p></details>
     <details><summary>What age or level is this suitable for?</summary><p class="ans">The method applies from early primary through upper primary. If your child is between [Year 1 and Year 6 / Darjah 1–6], this session is relevant.</p></details>
     <details><summary>What happens after I register and pay RM49.90?</summary><p class="ans">You'll receive a confirmation with the Google Meet link via email/WhatsApp. A reminder will be sent before the session.</p></details>
-    <details><summary>What does "RM49.90 credited" mean?</summary><p class="ans">If you decide to enroll your child at EduReach after the webinar, your RM49.90 registration fee is deducted from the first month's fee. Effectively, the webinar becomes free.</p></details>
     <details><summary>Will there be a recording?</summary><p class="ans">Yes. Every registered participant receives the full session recording, so you can rewatch it or catch up if you miss the live session.</p></details>
     <details><summary>What if I can't attend on the day?</summary><p class="ans">No problem — the full recording will be sent to you after the session, and you can still take the Singapore Maths online test at your own pace.</p></details>
   </div>
@@ -297,8 +326,42 @@ footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: cente
 <section class="final">
   <div class="wrap">
     <h2>Help Your Child Think Smart &amp; Solve Math Problems Faster</h2>
-    <p style="margin:16px 0 6px; opacity:.9;">Saturday &amp; Sunday, 18–19 July 2026 &bull; 2-Hour Live Session &bull; Google Meet</p>
+    <p style="margin:16px 0 6px; opacity:.9;">Saturday, 1 August 2026 &bull; 2-Hour Live Session &bull; Google Meet</p>
     <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Limited to 100 seats — once full, registration closes</div>
+
+    <div class="countdown-wrap">
+      <p class="cd-label"><i class="fa-solid fa-hourglass-half" style="margin-right:8px;"></i>Registration closes in</p>
+      <div class="cd-timer" id="cdTimer">
+        <div class="cd-box"><span class="num" id="cdDays">--</span><span class="unit">Days</span></div>
+        <div class="cd-box"><span class="num" id="cdHours">--</span><span class="unit">Hours</span></div>
+        <div class="cd-box"><span class="num" id="cdMins">--</span><span class="unit">Mins</span></div>
+        <div class="cd-box"><span class="num" id="cdSecs">--</span><span class="unit">Secs</span></div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      // 31 July 2026, 21:00 MYT (UTC+8) = 13:00 UTC
+      var deadline = new Date('2026-07-31T13:00:00Z');
+      function tick(){
+        var now = new Date();
+        var diff = deadline - now;
+        if(diff <= 0){
+          document.getElementById('cdTimer').innerHTML = '<p class="cd-closed"><i class="fa-solid fa-lock" style="margin-right:8px;"></i>Registration is now closed.</p>';
+          return;
+        }
+        var d = Math.floor(diff/86400000);
+        var h = Math.floor((diff%86400000)/3600000);
+        var m = Math.floor((diff%3600000)/60000);
+        var sc = Math.floor((diff%60000)/1000);
+        document.getElementById('cdDays').textContent  = String(d).padStart(2,'0');
+        document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cdMins').textContent  = String(m).padStart(2,'0');
+        document.getElementById('cdSecs').textContent  = String(sc).padStart(2,'0');
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+    </script>
     <div style="margin-top:18px;">
       <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Register Now — RM49.90</a>
     </div>

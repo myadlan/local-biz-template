@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Spend & ROI Simulator</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F6F8;
+    --panel:#FFFFFF;
+    --ink:#161C26;
+    --sub:#5B6675;
+    --line:#E1E5EA;
+    --teal:#0E7C7B;
+    --teal-deep:#0A5F5E;
+    --amber:#D98A2B;
+    --red:#C1473A;
+    --panel-b:#FBFCFD;
+    --shadow: 0 1px 2px rgba(22,28,38,.04), 0 8px 24px -12px rgba(22,28,38,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:36px 24px 80px;}
+
+  header.top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{
+    width:42px;height:42px;border-radius:10px;
+    background:linear-gradient(155deg,var(--teal),var(--teal-deep));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;
+    flex:none;
+  }
+  h1{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em;}
+  .tag{color:var(--sub);font-size:13px;margin-top:2px;}
+  .reset-btn{
+    background:var(--panel);border:1px solid var(--line);color:var(--sub);
+    padding:9px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
+    display:flex;align-items:center;gap:7px;transition:.15s;
+  }
+  .reset-btn:hover{border-color:var(--teal);color:var(--teal-deep);}
+
+  .flow-strip{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:16px 8px;margin-bottom:28px;box-shadow:var(--shadow);
+    position:relative;
+  }
+  .flow-node{text-align:center;padding:6px 8px;position:relative;}
+  .flow-node .fv{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:16px;color:var(--ink);}
+  .flow-node .fl{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);margin-top:3px;}
+  .flow-node:not(:last-child)::after{
+    content:"\f105";font-family:"Font Awesome 6 Free";font-weight:900;
+    position:absolute;right:-2px;top:8px;color:var(--line);font-size:14px;
+  }
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:880px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .card-head{
+    display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid var(--line);
+    background:var(--panel-b);
+  }
+  .card-head .step{
+    width:26px;height:26px;border-radius:7px;background:var(--ink);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;
+    font-size:13px;font-weight:700;flex:none;
+  }
+  .card-head h2{font-family:'Space Grotesk',sans-serif;font-size:15px;margin:0;font-weight:700;}
+  .card-head .sub{font-size:12px;color:var(--sub);margin-top:1px;}
+  .card-body{padding:18px 20px 20px;}
+
+  .row{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:11px 0;border-bottom:1px dashed var(--line);
+  }
+  .row:last-child{border-bottom:none;}
+  .row .lbl{font-size:13.5px;color:var(--ink);font-weight:500;}
+  .row .lbl .hint{display:block;font-size:11.5px;color:var(--sub);font-weight:400;margin-top:1px;}
+
+  select, input[type=number]{
+    font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:var(--ink);
+    border:1px solid var(--line);border-radius:7px;padding:8px 10px;width:132px;text-align:right;
+    background:#fff;
+  }
+  select{text-align:left;width:150px;font-family:'Inter',sans-serif;font-weight:600;}
+  input:focus, select:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal);}
+  input[readonly]{background:#F1F4F6;color:var(--sub);border-style:solid;cursor:default;}
+
+  .inline-rm{position:relative;}
+  .prefixed{display:flex;align-items:center;gap:6px;}
+  .cur{font-size:12px;color:var(--sub);font-weight:600;}
+
+  .subtotal-row{background:var(--panel-b);margin:0 -20px;padding:12px 20px;border-top:1px solid var(--line);}
+  .subtotal-row .lbl{font-weight:700;}
+  .subtotal-row .val{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:15px;}
+
+  .grand{
+    margin-top:20px;border-radius:10px;padding:16px 20px;
+    background:linear-gradient(135deg,var(--teal-deep),var(--teal));color:#fff;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .grand .lbl{font-size:13px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;opacity:.85;}
+  .grand .val{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:700;}
+
+  .note{
+    display:flex;gap:8px;font-size:11.5px;color:var(--sub);line-height:1.5;padding:10px 20px;
+    background:#FAF5EB;border-top:1px solid var(--line);
+  }
+  .note i{color:var(--amber);margin-top:2px;flex:none;}
+
+  .full{grid-column:1/-1;}
+
+  .roi-hero{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:0;
+  }
+  @media (max-width:700px){.roi-hero{grid-template-columns:1fr;}}
+  .roi-left{padding:18px 20px 20px;border-right:1px solid var(--line);}
+  @media (max-width:700px){.roi-left{border-right:none;border-bottom:1px solid var(--line);}}
+  .roi-right{padding:18px 20px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;}
+  .roi-right .roi-label{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);font-weight:700;}
+  .roi-right .roi-num{font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;line-height:1;}
+  .roi-right .roi-num.pos{color:var(--teal-deep);}
+  .roi-right .roi-num.neg{color:var(--red);}
+  .roi-right .roi-tag{font-size:12px;color:var(--sub);margin-top:2px;}
+
+  footer{margin-top:32px;text-align:center;font-size:11.5px;color:var(--sub);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="mark"><i class="fa-solid fa-calculator"></i></div>
+      <div>
+        <h1>Ad Spend &amp; ROI Simulator</h1>
+        <div class="tag">Package pricing, ad budget, WHT, and ROI in one view — RM</div>
+      </div>
+    </div>
+    <button class="reset-btn" id="resetBtn"><i class="fa-solid fa-rotate-left"></i> Reset to defaults</button>
+  </header>
+
+  <!-- Live flow strip -->
+  <div class="flow-strip" id="flowStrip">
+    <div class="flow-node"><div class="fv" id="fDaily">RM 0</div><div class="fl">Daily budget</div></div>
+    <div class="flow-node"><div class="fv" id="fClicks">0</div><div class="fl">Daily clicks</div></div>
+    <div class="flow-node"><div class="fv" id="fLeads">0</div><div class="fl">Leads / month</div></div>
+    <div class="flow-node"><div class="fv" id="fCust">0</div><div class="fl">Customers</div></div>
+    <div class="flow-node"><div class="fv" id="fRev">RM 0</div><div class="fl">Revenue</div></div>
+    <div class="flow-node"><div class="fv" id="fRoi">0%</div><div class="fl">ROI</div></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- SECTION A -->
+    <div class="card">
+      <div class="card-head">
+        <div class="step">A</div>
+        <div>
+          <h2>Marketing budget</h2>
+          <div class="sub">Package fee, ad spend, and statutory WHT</div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="lbl">Monthly package<span class="hint">Google Ads / Meta Ads management — paid to Dzk</span></div>
+          <select id="pkg">
+            <option value="1200">RM 1,200</option>
+            <option value="1800" selected>RM 1,800</option>
+            <option value="2500">RM 2,500</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Daily ad budget<span class="hint">Set on Meta / Google Ads platform</span></div>
+          <div class="prefixed"><span class="cur">RM</span><input type="number" id="dailyBudget" value="30" min="0" step="1"></div>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Monthly ad spend (× 31) + 8% tax<span class="hint">Paid directly to Meta/Google — card or FPX top-up</span></div>
+          <div class="prefixed"><span class="cur">RM</span><input type="text" id="monthlyAdTotal" readonly></div>
+        </div>
+
+        <div class="row">
+          <div class="lbl">WHT 8% (on package fee)<span class="hint">Withholding tax — remit to LHDN within 30 days</span></div>
+          <div class="prefixed"><span class="cur">RM</span><input type="text" id="whtAmount" readonly></div>
+        </div>
+
+        <div class="subtotal-row row" style="border:none;">
+          <div class="lbl">Section A subtotal</div>
+          <div class="val" id="sectionASub">RM 0</div>
+        </div>
+      </div>
+      <div class="note"><i class="fa-solid fa-circle-info"></i><span>WHT is a statutory 8% withheld from the package fee paid to the agency and remitted to LHDN separately — it isn't an extra platform cost, but it's cash you must set aside each month.</span></div>
+    </div>
+
+    <!-- SECTION B -->
+    <div class="card">
+      <div class="card-head">
+        <div class="step">B</div>
+        <div>
+          <h2>Traffic → revenue</h2>
+          <div class="sub">Funnel assumptions from clicks to customers</div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="lbl">Average CPC</div>
+          <div class="prefixed"><span class="cur">RM</span><input type="number" id="cpc" value="1" min="0.01" step="0.01"></div>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Daily clicks<span class="hint">Daily budget ÷ CPC</span></div>
+          <input type="text" id="dailyClicks" readonly>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Traffic → lead conversion</div>
+          <div class="prefixed"><input type="number" id="leadConv" value="10" min="0" max="100" step="0.5"><span class="cur">%</span></div>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Leads / day → Leads / month<span class="hint">30 days/month</span></div>
+          <input type="text" id="monthlyLeads" readonly>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Lead → close conversion</div>
+          <div class="prefixed"><input type="number" id="closeConv" value="30" min="0" max="100" step="0.5"><span class="cur">%</span></div>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Customers / month</div>
+          <input type="text" id="customers" readonly>
+        </div>
+
+        <div class="row">
+          <div class="lbl">Average order value</div>
+          <div class="prefixed"><span class="cur">RM</span><input type="number" id="aov" value="100" min="0" step="1"></div>
+        </div>
+
+        <div class="subtotal-row row" style="border:none;">
+          <div class="lbl">Total revenue / month</div>
+          <div class="val" id="totalRevenue">RM 0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION C -->
+    <div class="card full">
+      <div class="card-head">
+        <div class="step">C</div>
+        <div>
+          <h2>ROI</h2>
+          <div class="sub">Gross profit and return on marketing spend</div>
+        </div>
+      </div>
+      <div class="roi-hero">
+        <div class="roi-left">
+          <div class="row">
+            <div class="lbl">COGS %<span class="hint">Cost of goods sold, as % of revenue</span></div>
+            <div class="prefixed"><input type="number" id="cogsPct" value="40" min="0" max="100" step="1"><span class="cur">%</span></div>
+          </div>
+          <div class="row">
+            <div class="lbl">COGS amount</div>
+            <div class="prefixed"><span class="cur">RM</span><input type="text" id="cogsAmount" readonly></div>
+          </div>
+          <div class="row">
+            <div class="lbl">Marketing cost<span class="hint">Section A grand total</span></div>
+            <div class="prefixed"><span class="cur">RM</span><input type="text" id="mktCostC" readonly></div>
+          </div>
+          <div class="row">
+            <div class="lbl">Revenue</div>
+            <div class="prefixed"><span class="cur">RM</span><input type="text" id="revenueC" readonly></div>
+          </div>
+          <div class="subtotal-row row" style="border:none;">
+            <div class="lbl">Gross profit<span class="hint" style="margin-top:3px;">Revenue − COGS − Marketing cost</span></div>
+            <div class="val" id="grossProfit">RM 0</div>
+          </div>
+        </div>
+        <div class="roi-right">
+          <div class="roi-label">Return on Investment</div>
+          <div class="roi-num pos" id="roiNum">0%</div>
+          <div class="roi-tag" id="roiTag">Gross profit ÷ Marketing cost</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grand full">
+    <div class="lbl">Grand total marketing budget (this month)</div>
+    <div class="val" id="grandTotal">RM 0</div>
+  </div>
+
+  <footer>Figures are simulated estimates for planning purposes — actual platform tax, WHT treatment, and conversion rates may vary.</footer>
+
+</div>
+
+<script>
+function fmt(n, decimals=2){
+  if(!isFinite(n)) n = 0;
+  return 'RM ' + n.toLocaleString('en-MY', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
+}
+function fmtNum(n, decimals=0){
+  if(!isFinite(n)) n = 0;
+  return n.toLocaleString('en-MY', {minimumFractionDigits:decimals, maximumFractionDigits:decimals});
+}
+
+const el = id => document.getElementById(id);
+
+const DEFAULTS = {
+  pkg: '1800', dailyBudget: 30, cpc: 1, leadConv: 10, closeConv: 30, aov: 100, cogsPct: 40
+};
+
+function recalc(){
+  // ---- Section A ----
+  const pkgFee = parseFloat(el('pkg').value) || 0;
+  const dailyBudget = parseFloat(el('dailyBudget').value) || 0;
+
+  const monthlyAdBase = dailyBudget * 31;
+  const monthlyAdWithTax = monthlyAdBase * 1.08;
+  el('monthlyAdTotal').value = fmtNum(monthlyAdWithTax, 2);
+
+  const whtAmount = pkgFee * 0.08;
+  el('whtAmount').value = fmtNum(whtAmount, 2);
+
+  const sectionASubtotal = pkgFee + monthlyAdWithTax; // cash the client pays out (WHT is carved out of pkgFee, shown separately below)
+  el('sectionASub').textContent = fmt(sectionASubtotal);
+
+  const grandTotal = pkgFee + monthlyAdWithTax + whtAmount;
+  el('grandTotal').textContent = fmt(grandTotal);
+
+  // ---- Section B ----
+  const cpc = parseFloat(el('cpc').value) || 0.0001;
+  const leadConvPct = parseFloat(el('leadConv').value) || 0;
+  const closeConvPct = parseFloat(el('closeConv').value) || 0;
+  const aov = parseFloat(el('aov').value) || 0;
+
+  const dailyClicks = dailyBudget / cpc;
+  el('dailyClicks').value = fmtNum(dailyClicks, 1) + ' clicks/day';
+
+  const dailyLeads = dailyClicks * (leadConvPct/100);
+  const monthlyLeads = dailyLeads * 30;
+  el('monthlyLeads').value = fmtNum(dailyLeads,1) + '/day → ' + fmtNum(monthlyLeads,0) + '/month';
+
+  const customers = monthlyLeads * (closeConvPct/100);
+  el('customers').value = fmtNum(customers, 1);
+
+  const totalRevenue = customers * aov;
+  el('totalRevenue').textContent = fmt(totalRevenue);
+
+  // ---- Section C ----
+  const cogsPct = parseFloat(el('cogsPct').value) || 0;
+  const cogsAmount = totalRevenue * (cogsPct/100);
+  el('cogsAmount').value = fmtNum(cogsAmount, 2);
+  el('mktCostC').value = fmtNum(grandTotal, 2);
+  el('revenueC').value = fmtNum(totalRevenue, 2);
+
+  const grossProfit = totalRevenue - cogsAmount - grandTotal;
+  el('grossProfit').textContent = fmt(grossProfit);
+
+  const roi = grandTotal > 0 ? (grossProfit / grandTotal) * 100 : 0;
+  const roiEl = el('roiNum');
+  roiEl.textContent = fmtNum(roi, 1) + '%';
+  roiEl.className = 'roi-num ' + (roi >= 0 ? 'pos' : 'neg');
+  el('roiTag').textContent = roi >= 0 ? 'Profitable at current assumptions' : 'Loss at current assumptions';
+
+  // ---- Flow strip ----
+  el('fDaily').textContent = fmt(dailyBudget, 0);
+  el('fClicks').textContent = fmtNum(dailyClicks, 1);
+  el('fLeads').textContent = fmtNum(monthlyLeads, 0);
+  el('fCust').textContent = fmtNum(customers, 1);
+  el('fRev').textContent = fmt(totalRevenue, 0);
+  el('fRoi').textContent = fmtNum(roi, 1) + '%';
+}
+
+['pkg','dailyBudget','cpc','leadConv','closeConv','aov','cogsPct'].forEach(id=>{
+  el(id).addEventListener('input', recalc);
+  el(id).addEventListener('change', recalc);
+});
+
+el('resetBtn').addEventListener('click', ()=>{
+  el('pkg').value = DEFAULTS.pkg;
+  el('dailyBudget').value = DEFAULTS.dailyBudget;
+  el('cpc').value = DEFAULTS.cpc;
+  el('leadConv').value = DEFAULTS.leadConv;
+  el('closeConv').value = DEFAULTS.closeConv;
+  el('aov').value = DEFAULTS.aov;
+  el('cogsPct').value = DEFAULTS.cogsPct;
+  recalc();
+});
+
+recalc();
+</script>
+</body>
+</html>

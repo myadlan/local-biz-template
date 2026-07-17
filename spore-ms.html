@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singapore Math Success: Think Smart, Solve Fast — Webinar LIVE untuk Ibu Bapa | EduReach</title>
+<meta name="description" content="Temui strategi Singapore Math yang terbukti berkesan untuk bantu anak anda berumur 7–12 selesaikan masalah dengan yakin, tepat dan pantas. Webinar LIVE untuk ibu bapa. 1 Ogos 2026. RM49.90.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root {
+  --blue: #307FE2;
+  --blue-lt: #00A9E0;
+  --yellow: #FFC72C;
+  --navy: #0D1A2E;
+  --red: #FC4C02;
+  --tint: #EAF3FD;
+  --gray: #5A6B80;
+}
+* { margin: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--navy);
+  background: #fff;
+  font-size: 17px;
+  line-height: 1.65;
+}
+h1, h2, h3 { font-family: 'Lexend', 'Inter', sans-serif; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+img { max-width: 100%; height: auto; display: block; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; }
+
+/* Signature: bar-model divider */
+.barmodel { display: flex; gap: 4px; margin: 0 0 20px; }
+.barmodel span { height: 10px; border-radius: 3px; display: block; }
+.barmodel .b1 { width: 84px; background: var(--blue); }
+.barmodel .b2 { width: 52px; background: var(--yellow); }
+.barmodel .b3 { width: 28px; background: var(--blue-lt); }
+
+/* Topbar */
+.topbar {
+  background: var(--navy); color: #fff; text-align: center;
+  padding: 10px 16px; font-size: .92rem; font-weight: 600;
+}
+.topbar i { color: var(--yellow); margin-right: 8px; }
+
+/* Hero */
+.hero { background: linear-gradient(180deg, var(--tint) 0%, #fff 100%); padding: 72px 0 64px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.eyebrow {
+  display: inline-block; background: #fff; border: 1.5px solid var(--blue);
+  color: var(--blue); font-weight: 600; font-size: .85rem;
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;
+}
+.hero h1 .payoff { color: var(--blue); }
+.hero h1 .payoff mark { background: var(--yellow); padding: 0 6px; border-radius: 6px; color: var(--navy); }
+.tagline { font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 1.2rem; color: var(--blue); margin: 14px 0 18px; }
+.hero p.lead { color: var(--gray); max-width: 52ch; }
+.hero-img { border-radius: 16px; box-shadow: 0 20px 50px rgba(13,26,46,.15); }
+
+.badge-red {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #FFF0E9; color: var(--red); border: 1.5px solid var(--red);
+  font-weight: 700; font-size: .9rem; padding: 8px 16px; border-radius: 999px;
+  margin: 22px 0 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.05rem;
+  padding: 16px 32px; border-radius: 12px; text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--yellow); color: var(--navy); box-shadow: 0 8px 24px rgba(255,199,44,.45); }
+.btn-note { font-size: .88rem; color: var(--gray); margin-top: 12px; }
+.btn-note strong { color: var(--navy); }
+
+/* Event details strip */
+.details { background: var(--blue); color: #fff; padding: 40px 0; }
+.details-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.details-grid i { font-size: 1.6rem; color: var(--yellow); margin-bottom: 10px; }
+.details-grid .lbl { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
+.details-grid .val { font-family: 'Lexend', sans-serif; font-weight: 600; font-size: 1.05rem; }
+
+/* Speaker */
+.speaker-card {
+  display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center;
+  background: var(--tint); border-radius: 20px; padding: 40px;
+}
+.speaker-card img { border-radius: 16px; width: 300px; height: 300px; object-fit: cover; }
+.speaker-card .role { color: var(--blue); font-weight: 600; margin: 4px 0 14px; }
+.cred { display: inline-flex; align-items: center; gap: 10px; background: #fff; border-radius: 10px; padding: 10px 16px; font-weight: 600; font-size: .95rem; margin-top: 16px; }
+.cred i { color: var(--blue); }
+
+/* Learn / benefits lists */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card {
+  background: #fff; border: 1px solid #E1E9F4; border-radius: 16px;
+  padding: 26px; display: flex; gap: 16px; align-items: flex-start;
+}
+.card i { color: var(--blue); font-size: 1.3rem; margin-top: 4px; }
+.card.on-tint { background: #fff; }
+.sec-tint { background: var(--tint); }
+.cpa-img { border-radius: 16px; margin-top: 40px; box-shadow: 0 16px 40px rgba(13,26,46,.12); }
+
+/* Testimonials */
+.sec-navy { background: var(--navy); color: #fff; }
+.sec-navy .barmodel .b1 { background: var(--yellow); }
+.t-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.t-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 28px; }
+.t-card .stars { color: var(--yellow); margin-bottom: 14px; }
+.t-card .who { margin-top: 16px; font-weight: 600; font-size: .92rem; color: var(--blue-lt); }
+
+/* FAQ */
+details { border: 1px solid #E1E9F4; border-radius: 12px; margin-bottom: 12px; background: #fff; }
+details summary {
+  cursor: pointer; list-style: none; padding: 18px 22px;
+  font-family: 'Lexend', sans-serif; font-weight: 600;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--blue); font-size: .8rem; transition: transform .2s; }
+details[open] summary::after { transform: rotate(180deg); }
+details[open] summary { color: var(--blue); }
+details .ans { padding: 0 22px 18px; color: var(--gray); }
+
+/* Final CTA */
+.final { background: linear-gradient(135deg, var(--blue) 0%, var(--blue-lt) 100%); color: #fff; text-align: center; }
+.final .badge-red { background: #fff; }
+.final .btn-note { color: rgba(255,255,255,.85); }
+.final .btn-note strong { color: #fff; }
+
+footer { background: var(--navy); color: rgba(255,255,255,.6); text-align: center; padding: 28px 16px; font-size: .85rem; }
+
+@media (max-width: 860px) {
+  section { padding: 52px 0; }
+  .hero-grid, .speaker-card, .grid-2 { grid-template-columns: 1fr; }
+  .t-grid { grid-template-columns: 1fr; }
+  .details-grid { grid-template-columns: repeat(2, 1fr); }
+  .speaker-card { padding: 28px; }
+  .speaker-card img { margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+
+/* Countdown */
+.countdown-wrap {
+  background: var(--navy); border-radius: 16px;
+  padding: 28px 24px; margin: 32px 0; text-align: center;
+}
+.countdown-wrap .cd-label {
+  font-family: 'Lexend', sans-serif; font-weight: 600;
+  font-size: .9rem; color: var(--yellow); text-transform: uppercase;
+  letter-spacing: .1em; margin-bottom: 16px;
+}
+.cd-timer { display: flex; justify-content: center; gap: 12px; }
+.cd-box {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px; padding: 14px 18px; min-width: 72px;
+}
+.cd-box .num {
+  font-family: 'Lexend', sans-serif; font-weight: 800;
+  font-size: 2.2rem; color: #fff; line-height: 1;
+  display: block;
+}
+.cd-box .unit {
+  font-size: .75rem; color: rgba(255,255,255,.6);
+  text-transform: uppercase; letter-spacing: .08em;
+  display: block; margin-top: 6px;
+}
+.cd-closed { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--yellow); }
+@media (max-width: 480px) {
+  .cd-box { min-width: 58px; padding: 10px 12px; }
+  .cd-box .num { font-size: 1.7rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <i class="fa-solid fa-video"></i>Webinar LIVE Online &bull; Sabtu, 1 Ogos 2026 &bull; Sesi 2 Jam &bull; Google Meet &bull; Hanya 100 Tempat
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><i class="fa-solid fa-users" style="margin-right:8px;"></i>Webinar LIVE Online &bull; Sesuai untuk Ibu Bapa yang Ada Anak Berumur 7–12 Tahun</span>
+      <h1>Singapore Math <span class="payoff"><mark>Success</mark></span></h1>
+      <p class="tagline">Fikir Bijak. Selesai Pantas.</p>
+      <p class="lead">Temui strategi Singapore Math yang terbukti berkesan untuk bantu anak anda berumur 7–12 selesaikan masalah dengan penuh <strong>keyakinan</strong>, <strong>ketepatan</strong>, dan <strong>kelajuan</strong>.</p>
+      <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Terhad 100 tempat sahaja — daftar awal</div>      <div>
+        <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Daftar Sekarang — RM49.90</a>
+      </div>
+    </div>
+    <img class="hero-img" src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,c_scale,f_auto,q_auto/v1783643749/edureach-hero-math_ddt5dx.png" alt="Child learning with the Singapore Maths method">
+  </div>
+</header>
+
+<!-- EVENT DETAILS -->
+<div class="details">
+  <div class="wrap details-grid">
+    <div><i class="fa-solid fa-calendar-day"></i><div class="lbl">Tarikh</div><div class="val">Sabtu, 1 Ogos 2026</div></div>
+    <div><i class="fa-solid fa-clock"></i><div class="lbl">Tempoh</div><div class="val">Sesi LIVE 2 Jam</div></div>
+    <div><i class="fa-solid fa-laptop"></i><div class="lbl">Platform</div><div class="val">Google Meet</div></div>
+    <div><i class="fa-solid fa-tag"></i><div class="lbl">Yuran</div><div class="val">RM49.90</div></div>
+  </div>
+</div>
+
+<!-- SPEAKER -->
+<section>
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Kenali Penceramah Anda</h2>
+    <div class="speaker-card" style="margin-top:32px;">
+      <img src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_300,h_300,c_thumb,g_face,z_0.75,f_auto,q_auto/v1783643543/mot-sharifah_wghtxb.jpg" width="300" height="300" alt="Sharifah, Maths Teacher at EduReach Pte Ltd Singapore" loading="lazy">
+      <div>
+        <h3 style="font-size:1.5rem;">Sharifah</h3>
+        <p class="role">Guru Matematik, EduReach Pte Ltd, Singapura</p>
+        <p style="color:var(--gray);">Sharifah Md Kassim adalah seorang Engineer, Educator, dan Author yang memiliki Bachelor of Information Technology dan Advanced Diploma in Computer Studies. Sebagai Certified Brain Gym Movement Facilitator, beliau pakar dalam mereka bentuk pengalaman pembelajaran yang menarik dan berasaskan pergerakan untuk mempertajam fokus, kefahaman, dan critical thinking kanak-kanak. Beliau telah menulis empat buah buku komik yang diterbitkan — termasuk tiga tajuk pendidikan berasaskan STEAM — dan berkhidmat sebagai editor untuk lebih 20 buah buku penilaian pendidikan. Di EduReach Singapura, Sharifah menggabungkan teknologi, kreativiti, dan pedagogi terbukti untuk membantu kanak-kanak berumur 7–12 menjadi pelajar yang yakin, ingin tahu, dan bersedia untuk masa hadapan.</p>
+        <div class="cred"><i class="fa-solid fa-circle-check"></i>Mengajar terus dalam sistem Singapore sekarang — belajar daripada sumber asal, bukan ringkasan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="sec-tint">
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Apa Yang Anda Akan Pelajari</h2>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-brain"></i><div><h3>Pendekatan Singapore Math yang Terbukti</h3><p style="color:var(--gray);">Kaedah yang sama digunakan oleh pelajar terbaik dunia — pelajari cara mengaplikasikannya dalam pembelajaran anak anda.</p></div></div>
+      <div class="card"><i class="fa-solid fa-table-cells"></i><div><h3>Bar Model Method</h3><p style="color:var(--gray);">Cara menggunakan kaedah visual Bar Model untuk selesaikan soalan cerita dengan mudah dan tepat.</p></div></div>
+      <div class="card"><i class="fa-solid fa-bullseye"></i><div><h3>Strategi Problem-Solving</h3><p style="color:var(--gray);">Strategi praktikal yang bina keyakinan sebenar dalam menangani soalan-soalan yang mencabar.</p></div></div>
+      <div class="card"><i class="fa-solid fa-stopwatch"></i><div><h3>Jawapan Lebih Pantas dan Tepat</h3><p style="color:var(--gray);">Teknik untuk selesaikan soalan dengan lebih cepat dan tepat — kurangkan kesilapan cuai.</p></div></div>
+      <div class="card" style="grid-column:1/-1;"><i class="fa-solid fa-lightbulb"></i><div><h3>Critical Thinking &amp; Logical Reasoning</h3><p style="color:var(--gray);">Kembangkan kemahiran berfikir yang membawa kepada keputusan lebih baik — bukan sekadar hafal jawapan, tetapi faham masalah.</p></div></div>
+    </div>
+    <img class="cpa-img" src="https://res.cloudinary.com/dvnmu1cqd/image/upload/w_1200,c_scale,f_auto,q_auto/v1783643984/edureach-cpa-math_ylk6gv.png" alt="The CPA approach: Concrete, Pictorial, Abstract" loading="lazy">
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section>
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Kenapa Ibu Bapa Perlu Hadir</h2>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-lightbulb"></i><div><h3>Fahami kenapa anak anda struggle</h3><p style="color:var(--gray);">Biasanya masalahnya adalah kaedah, bukan anak anda.</p></div></div>
+      <div class="card"><i class="fa-solid fa-house"></i><div><h3>Bantu homework di rumah</h3><p style="color:var(--gray);">Walaupun anda sendiri dulu tidak cemerlang dalam Matematik.</p></div></div>
+      <div class="card"><i class="fa-solid fa-scale-balanced"></i><div><h3>Judge for yourself</h3><p style="color:var(--gray);">See whether Singapore Maths suits your child before committing to any tuition.</p></div></div>
+      <div class="card"><i class="fa-solid fa-shield-halved"></i><div><h3>Yuran tanpa risiko</h3><p style="color:var(--gray);">Pelaburan RM49.90 anda membawa pulangan ilmu yang bernilai untuk masa depan anak anda.</p></div></div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Daftar Sekarang — RM49.90</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL GET -->
+<section class="sec-tint">
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Setiap Peserta Akan Menerima</h2>
+    <div class="grid-2" style="margin-top:32px;">
+      <div class="card"><i class="fa-solid fa-certificate"></i><div><h3>E-Certificate of Participation</h3><p style="color:var(--gray);">Sijil digital dikeluarkan kepada setiap peserta berdaftar selepas sesi tamat.</p></div></div>
+      <div class="card"><i class="fa-solid fa-book-open"></i><div><h3>Singapore Math E-Book</h3><p style="color:var(--gray);">Panduan digital yang meringkaskan strategi Singapore Math utama yang dibincangkan dalam webinar.</p></div></div>
+      <div class="card"><i class="fa-solid fa-circle-play"></i><div><h3>Rakaman Penuh Webinar</h3><p style="color:var(--gray);">Tonton semula sesi penuh pada bila-bila masa — tiada yang tertinggal walaupun anda tidak dapat hadir live.</p></div></div>
+      <div class="card"><i class="fa-solid fa-comments"></i><div><h3>Sesi Live Q&amp;A</h3><p style="color:var(--gray);">Tanya soalan anda terus kepada penceramah kami semasa sesi berlangsung.</p></div></div>
+      <div class="card"><i class="fa-solid fa-file-lines"></i><div><h3>Bahan Latihan Bonus</h3><p style="color:var(--gray);">Soalan latihan terpilih dalam gaya Singapore Math untuk anak anda cuba selepas webinar.</p></div></div>
+      <div class="card" style="border:1.5px solid var(--yellow); background:#FFFBEE;"><i class="fa-solid fa-trophy" style="color:var(--yellow);"></i><div><h3>Bonus: Top 3 Scorer Menang!</h3><p style="color:var(--gray);">3 peserta dengan skor tertinggi dalam online test akan menerima <strong style="color:var(--navy);">kredit Touch 'n Go eWallet RM10</strong> setiap seorang.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec-navy">
+  <div class="wrap">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2>Apa Kata Ibu Bapa</h2>
+    <div class="t-grid" style="margin-top:32px;">
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Anak saya tak nak belajar dengan cikgu lain sebab dah selesa belajar dengan Cikgu!"</p>
+        <p class="who">— Puan Nora</p>
+      </div>
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"83% dan 95%, Terima kasih atas bimbingan Cikgu."</p>
+        <p class="who">— Puan Hoe</p>
+      </div>
+      <div class="t-card">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p>"Terima kasih Cikgu. Anak saya dah tunjuk minat pada Maths. Dulu, susah betul nak score. Sekarang dah dapat A."</p>
+        <p class="who">— Ummu Arabi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-tint">
+  <div class="wrap" style="max-width:800px;">
+    <div class="barmodel"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <h2 style="margin-bottom:32px;">Soalan Lazim</h2>
+    <details><summary>Webinar ini untuk ibu bapa atau kanak-kanak?</summary><p class="ans">Sesi ini direka khusus untuk ibu bapa. Anda akan belajar bagaimana kaedah Singapore Math berfungsi supaya anda boleh memahami dan menyokong pembelajaran anak anda. Kanak-kanak dialu-alukan untuk menonton bersama, tetapi kandungannya ditujukan kepada orang dewasa.</p></details>
+    <details><summary>Anak saya lemah dalam Maths. Adakah ini masih relevan?</summary><p class="ans">Ya — terutamanya untuk anda. Webinar ini membincangkan jurang biasa dalam kaedah tradisional yang menyebabkan kanak-kanak struggle, dan bagaimana pendekatan Singapore dapat mengatasinya.</p></details>
+    <details><summary>Sesuai untuk anak berumur berapa?</summary><p class="ans">Kaedah ini sesuai dari awal hingga akhir sekolah rendah. Jika anak anda berumur antara 7 hingga 12 tahun (Darjah 1–6), sesi ini amat relevan untuk anda.</p></details>
+    <details><summary>Apa yang berlaku selepas saya daftar dan bayar RM49.90?</summary><p class="ans">Anda akan menerima pengesahan berserta link Google Meet melalui emel/WhatsApp. Peringatan akan dihantar sebelum sesi bermula.</p></details>
+    <details><summary>Adakah sesi ini akan dirakam?</summary><p class="ans">Ya. Setiap peserta berdaftar akan menerima rakaman penuh sesi ini, supaya anda boleh menontonnya semula atau mengejar jika terlepas sesi live.</p></details>
+    <details><summary>Bagaimana jika saya tidak dapat hadir pada hari tersebut?</summary><p class="ans">Tidak mengapa — rakaman penuh akan dihantar kepada anda selepas sesi, dan anda masih boleh mengambil online test Singapore Math mengikut masa anda sendiri.</p></details>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Bantu Anak Anda Fikir Bijak &amp; Selesaikan Masalah Matematik Lebih Pantas</h2>
+    <p style="margin:16px 0 6px; opacity:.9;">Sabtu, 1 Ogos 2026 &bull; Sesi LIVE 2 Jam &bull; Google Meet</p>
+    <div class="badge-red"><i class="fa-solid fa-circle-exclamation"></i>Terhad 100 tempat — apabila penuh, pendaftaran ditutup</div>
+
+    <div class="countdown-wrap">
+      <p class="cd-label"><i class="fa-solid fa-hourglass-half" style="margin-right:8px;"></i>Pendaftaran ditutup dalam</p>
+      <div class="cd-timer" id="cdTimer">
+        <div class="cd-box"><span class="num" id="cdDays">--</span><span class="unit">Hari</span></div>
+        <div class="cd-box"><span class="num" id="cdHours">--</span><span class="unit">Jam</span></div>
+        <div class="cd-box"><span class="num" id="cdMins">--</span><span class="unit">Minit</span></div>
+        <div class="cd-box"><span class="num" id="cdSecs">--</span><span class="unit">Saat</span></div>
+      </div>
+    </div>
+    <script>
+    (function(){
+      // 31 July 2026, 21:00 MYT (UTC+8) = 13:00 UTC
+      var deadline = new Date('2026-07-31T13:00:00Z');
+      function tick(){
+        var now = new Date();
+        var diff = deadline - now;
+        if(diff <= 0){
+          document.getElementById('cdTimer').innerHTML = '<p class="cd-closed"><i class="fa-solid fa-lock" style="margin-right:8px;"></i>Pendaftaran telah ditutup.</p>';
+          return;
+        }
+        var d = Math.floor(diff/86400000);
+        var h = Math.floor((diff%86400000)/3600000);
+        var m = Math.floor((diff%3600000)/60000);
+        var sc = Math.floor((diff%60000)/1000);
+        document.getElementById('cdDays').textContent  = String(d).padStart(2,'0');
+        document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cdMins').textContent  = String(m).padStart(2,'0');
+        document.getElementById('cdSecs').textContent  = String(sc).padStart(2,'0');
+        setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+    </script>
+    <div style="margin-top:18px;">
+      <a class="btn btn-primary" href="https://toyyibpay.com/Singapore-Math-Success"><i class="fa-solid fa-ticket"></i>Daftar Sekarang — RM49.90</a>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2026 EduReach. Hak Cipta Terpelihara.</footer>
+
+</body>
+</html>

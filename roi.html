@@ -196,7 +196,7 @@
         </div>
 
         <div class="row">
-          <div class="lbl">WHT 8% (on package fee)<span class="hint">Withholding tax — remit to LHDN within 30 days</span></div>
+          <div class="lbl">WHT 8% (on monthly ad spend)<span class="hint">Withholding tax — remit to LHDN within 30 days</span></div>
           <div class="prefixed"><span class="cur">RM</span><input type="text" id="whtAmount" readonly></div>
         </div>
 
@@ -205,7 +205,7 @@
           <div class="val" id="sectionASub">RM 0</div>
         </div>
       </div>
-      <div class="note"><i class="fa-solid fa-circle-info"></i><span>WHT is a statutory 8% withheld from the package fee paid to the agency and remitted to LHDN separately — it isn't an extra platform cost, but it's cash you must set aside each month.</span></div>
+      <div class="note"><i class="fa-solid fa-circle-info"></i><span>SST and WHT are both 8%, but on different legs of the same ad spend: SST is added on top of the ad spend paid to Meta/Google, while WHT is withheld on that same ad spend base and remitted to LHDN separately.</span></div>
     </div>
 
     <!-- SECTION B -->
@@ -337,7 +337,7 @@ function recalc(){
   const monthlyAdWithTax = monthlyAdBase * 1.08;
   el('monthlyAdTotal').value = fmtNum(monthlyAdWithTax, 2);
 
-  const whtAmount = pkgFee * 0.08;
+  const whtAmount = monthlyAdBase * 0.08;
   el('whtAmount').value = fmtNum(whtAmount, 2);
 
   const sectionASubtotal = pkgFee + monthlyAdWithTax; // cash the client pays out (WHT is carved out of pkgFee, shown separately below)
@@ -408,5 +408,6 @@ el('resetBtn').addEventListener('click', ()=>{
 
 recalc();
 </script>
+Brought by Dezeek Digital - <a href="https://dezeek.com">Google Ads Agency Malaysia</a>
 </body>
 </html>
